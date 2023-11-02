@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation</title>
+</head>
+<body>
+    <h1>Save Life, Donate Blood</h1>
+    <form>
+        <label>Donor Name</label>
+        <input type="text" placeholder="Enter name" name="name" aria-label="Full Name">
+
+        <label>Age</label>
+        <input type="number" placeholder="Enter age" name="age" aria-label="Age">
+        
+        <label>Gender: </label>
+        <input type="radio" id="male" name="gender" value="male">
+        <label for="male">Male</label>
+
+        <input type="radio" id="female" name="gender" value="female">
+        <label for="female">Female</label>
+
+        <label for="blood-type">Blood Type:</label>
+        <select id="blood-type" name="blood-type" aria-label="Select Blood Type" required>
+            <option value="A+">A+</option>
+            <option value="A-">A-</option>
+            <option value="B+">B+</option>
+            <option value="B-">B-</option>
+            <option value="O+">O+</option>
+            <option value="O-">O-</option>
+            <option value="AB+">AB+</option>
+            <option value="AB-">AB-</option>
+        </select>
+
+        <label>Email</label>
+        <input type="email" placeholder="Enter email" name="email" aria-label="Full email">
+
+        <label>Phone</label>
+        <input type="number" placeholder="Enter phone nu." name="phone" aria-label="Phone number">
+
+        <label>Location</label>
+        <input type="text" placeholder="Enter address" name="location" aria-label="Location">
+
+        <label>Last donation date: </label>
+        <input type="date" placeholder="Enter date" name="last-donation-date" aria-label="Last Donation Date">
+    </form>
+</body>
+</html>

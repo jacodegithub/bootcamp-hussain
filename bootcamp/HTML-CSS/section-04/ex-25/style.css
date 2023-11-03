@@ -1,0 +1,21 @@
+#cols {
+    display: flex;
+}
+#cols #left {
+    margin-right: 20px;
+    background-color: lightcoral;
+    width: 10rem;
+    height: 10rem;
+}
+#cols #middle {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: aquamarine;
+    width: 10rem;
+    height: 10rem;
+}
+#cols #right {
+    background-color: bisque;
+    width: 10rem;
+    height: 10rem;
+}

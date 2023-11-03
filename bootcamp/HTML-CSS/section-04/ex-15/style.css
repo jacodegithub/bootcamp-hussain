@@ -1,0 +1,8 @@
+#featured-image {
+    width: 400px;
+    border: 2px dotted #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}

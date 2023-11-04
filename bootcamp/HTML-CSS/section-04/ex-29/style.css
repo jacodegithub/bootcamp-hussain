@@ -74,8 +74,8 @@ body {
 
 /* Image container  */
 .img-container {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
     border-radius: 50%;
     overflow: hidden;
     position: relative;
@@ -98,6 +98,9 @@ body {
     color: #f7fdff;
     width: 50%;
 }
+.person-info h1 {
+    font-size: 42px;
+}
 .person-info h4 {
     margin-top: 5px;
     font-size: 15px;
@@ -105,8 +108,8 @@ body {
 
 /* person work related mater  */
 .person-info .matter {
-    width: 250px;
-    font-size: 11px;
+    width: 300px;
+    font-size: 13px;
     text-align: left;
     font-weight: bold;
 }

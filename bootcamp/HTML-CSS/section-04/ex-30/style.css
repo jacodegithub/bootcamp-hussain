@@ -32,3 +32,7 @@ button span {
     font-weight: bold;
     padding: 10px;
 }
+
+button:active {
+    transform: translateY(2px);
+}

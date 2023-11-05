@@ -37,10 +37,9 @@ header {
 /* navbar */
 nav {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     justify-content: space-between;
-    padding: 20px;
-    width: 90vw;    
+    padding: 20px 0px;  
 }
 
 /* navbar logo  */

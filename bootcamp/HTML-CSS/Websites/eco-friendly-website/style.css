@@ -104,6 +104,7 @@ nav .logo img {
     color: white;
     border-radius: 5px;
     margin-top: 30px;
+    cursor: pointer;
 }
 
 /* header right secton  */
@@ -199,4 +200,66 @@ main {
     align-items: center;
     justify-content: space-between;
     gap: 50px;
+}
+
+/* product box  */
+.product-box {
+    background-color: white;
+    height: 300px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 5px;
+    padding: 10px;
+}
+/* product box img  */
+.product-box img {
+    width: 100%;
+    height: auto;
+}
+/* divider */
+.divider {
+    height: 1px;
+    width: 90%;
+    background-color: rgba(128, 128, 128, 0.5);
+}
+/* price & add2cart section */
+.price-add2cart {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+.price-add2cart button {
+    border: none;
+    background-color: #131313;
+    color: white;
+    font-size: 10px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+/* main section button  */
+.main-section-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 170px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    background: #131313;
+    color: white;
+    border-radius: 5px;
+    margin-top: 30px;
+    cursor: pointer;
+}
+
+/* subscription box  */
+section {
+    height: 50vh;
 }

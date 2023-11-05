@@ -97,6 +97,8 @@ nav .logo img {
     font-size: 50px;
 }
 .header-left p {
+    left: 0;
+    top: 100px;
     width: 70%;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -123,7 +125,11 @@ nav .logo img {
 .header-right {
     flex: 1;
 }
-
+.header-img-container {
+    width: 100%;
+    height: 550px;
+    overflow: hidden;
+}
 
 /* article sectoin  */
 article {
@@ -400,6 +406,7 @@ footer {
 
     header {
         height: 100vh;
+        overflow: hidden;
     }
     /* nav img  */
     nav {
@@ -444,13 +451,14 @@ footer {
     }
     .header-right img {
         position: absolute;
-        left: -120px;
-        top: 100px;
-        width: 180%;
+        left: -90px;
+        top: 110px;
+        width: 600px;
         height: auto;
     }
 
     .header-left {
+        position: absolute;
         z-index: 9;
         width: 90vw;
         margin: 0 auto;
@@ -459,9 +467,6 @@ footer {
         width: 170px;
         height: 50px;
         font-size: 20px;
-        border: none;
-        background: #131313;
-        color: white;
         border-radius: 5px;
         margin-top: 15px;
         margin-bottom: 76px;
@@ -470,7 +475,8 @@ footer {
 
     /* header left section  */
     .header-left h1 {
-        font-size: 40px;
+        font-size: 45px;
+        font-weight: 700;
     }
     .header-left p {
         font-size: 15px;
@@ -635,6 +641,7 @@ footer {
     }
     .eco-friendly p {
         font-size: 8px;
+        text-align: justify;
     }
     .links p {
         font-size: 8px;

@@ -5,6 +5,13 @@
 
 body {
     /* height: 100vh; */
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-family: 'Kalam', cursive;
+    font-family: 'Mooli', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 header {
@@ -105,6 +112,12 @@ nav .logo img {
     border-radius: 5px;
     margin-top: 30px;
     cursor: pointer;
+}
+.header-left button:hover {
+    background-color: #131313ea;
+}
+.header-left button:active {
+    transform: scale(.98);
 }
 
 /* header right secton  */
@@ -234,12 +247,19 @@ main {
 }
 .price-add2cart button {
     border: none;
-    background-color: #131313;
+    background-color: #4d4d4d;
     color: white;
     font-size: 10px;
-    padding: 5px 10px;
-    border-radius: 10px;
+    width: 80px;
+    padding: 5px 0px;
+    border-radius: 5px;
     cursor: pointer;
+}
+.price-add2cart button:hover {
+    background-color: #131313ea;
+}
+.price-add2cart button:active {
+    transform: scale(.98);
 }
 
 /* main section button  */
@@ -258,8 +278,117 @@ main {
     margin-top: 30px;
     cursor: pointer;
 }
+.main-section-btn:hover {
+    background-color: #131313ea;
+}
+.main-section-btn:active {
+    transform: scale(.98);
+}
 
 /* subscription box  */
 section {
     height: 50vh;
+    background-color: #d5df9a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.section-wrapper {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.section-wrapper h2 {
+    width: 80%;
+    text-align: center;
+}
+.subscribe-section {
+    margin-top: 10px;
+}
+.subscribe-section input {
+    border: none;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.subscribe-section button {
+    height: 30px;
+    border: none;
+    background-color: #131313;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.subscribe-section button:hover {
+    background-color: #131313ea;
+}
+.subscribe-section button:active {
+    transform: scale(.98);
+}
+.section-wrapper .top {
+    margin-top: 20px;
+    color: rgba(0, 0, 0, 0.7);
+}
+.section-wrapper .bottom {
+    font-size: 10px;
+    color: rgba(0, 0, 0, 0.5);
+    width: 30%;
+    text-align: center;
+    margin-top: 10px;
+}
+.section-wrapper a {
+    color: #131313;
+    text-decoration: none;
+}
+
+/* footer  */
+footer {
+    height: 50vh;
+    background-color: #c2d06f;
+}
+.footer-wrapper {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    justify-content: space-around;
+}
+.footer-wrapper .top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.eco-friendly {
+    width: 30%;
+}
+.footer-header {
+    margin-bottom: 20px;
+    color: #353633;
+}
+.eco-friendly p {
+    font-size: 13px;
+}
+.links p {
+    font-size: 13px;
+}
+.contact p {
+    font-size: 13px;
+}
+.social-media i {
+    background-color: black;
+    color: #a5b258;
+    border-radius: 50%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.bottom p {
+    margin-top: 20px;
+}
+.bottom .divider {
+    height: 1px;
+    width: 100%;
+    background-color: rgba(128, 128, 128, 0.5);
+} 

@@ -114,5 +114,89 @@ nav .logo img {
 
 /* article sectoin  */
 article {
-    height: 50vh;
+    height: 55vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+/* box  */
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    border: 1px solid rgba(128, 128, 128, 0.5);
+    padding: 10px;
+    border-radius: 15px 0 15px 0;
+    
+}
+
+/* box */
+.box-logo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+}
+.box-logo img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+}
+.box h3 {
+    text-align: center;
+    width: 80%;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.box p {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 15px;
+    line-height: 18px;
+    padding: 10px;
+}
+
+/* main  */
+main {
+    height: 150vh;
+    background-color: #a5b258;
+}
+
+.main-wrapper { 
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.main-wrapper h2 {
+    margin-top: 80px;
+    margin-bottom: 80px;
+    color: white;
+}
+
+/* products row one  */
+.row-one {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+/* products row two  */
+.row-two {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
 }

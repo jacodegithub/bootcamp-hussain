@@ -1,0 +1,118 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* height: 100vh; */
+}
+
+header {
+    /* background: rgb(165,178,88);
+    background: linear-gradient(0deg, rgba(165,178,88,1) 0%, rgba(195,202,142,1) 50%, rgba(165,178,88,1) 100%);  */
+    /* background: rgb(165,178,88);
+    background: linear-gradient(0deg, rgba(165,178,88,1) 0%, rgba(195,202,142,1) 38%, rgba(165,178,88,1) 100%);  */
+    /* background: rgb(165,178,88);
+    background: linear-gradient(0deg, rgba(165,178,88,1) 0%, rgba(211,217,173,1) 51%, rgba(165,178,88,1) 93%);  */
+    /* background: rgb(165,178,88);
+    background: linear-gradient(0deg, rgba(165,178,88,1) 0%, rgba(211,217,173,1) 45%, rgba(165,178,88,1) 86%);  */
+    background: rgb(165,178,88);
+    background: linear-gradient(0deg, rgba(165,178,88,1) 0%, rgba(211,217,173,1) 45%, rgba(165,178,88,1) 88%); 
+    height: 92.45vh;
+}
+
+/* commom centering lines */
+.max-width {
+    margin: 0 auto;
+    width: 90vw;
+}
+
+/* navbar */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    width: 90vw;    
+}
+
+/* navbar logo  */
+nav .logo {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+/* nav img  */
+nav .logo img {
+    width: 50px;
+    height: 50px;
+    color: #a5b258;
+}
+
+.nav-links {
+    margin-left: 100px;
+}
+
+/* nav-links anchor tag */
+.nav-links a {
+    margin-left: 20px;
+    margin-right: 20px;
+    text-decoration: none;
+    color: black;
+}
+
+/* cart-login */
+.cart-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cart-login i {
+    margin-left: 20px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+
+/* header body section  */
+.header-body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+/* header left section  */
+.header-left {
+    flex: 1;
+}
+.header-left h1 {
+    font-size: 50px;
+}
+.header-left p {
+    width: 70%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.header-left button {
+    width: 170px;
+    height: 50px;
+    font-size: 20px;
+    border: none;
+    background: #131313;
+    color: white;
+    border-radius: 5px;
+    margin-top: 30px;
+}
+
+/* header right secton  */
+.header-right {
+    flex: 1;
+}
+
+
+/* article sectoin  */
+article {
+    height: 50vh;
+}

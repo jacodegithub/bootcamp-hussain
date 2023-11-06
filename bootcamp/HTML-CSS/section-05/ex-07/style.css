@@ -9,6 +9,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .pricing-page {
@@ -21,6 +22,11 @@ body {
     padding: 100px;
     background-color: #e4eae8;
 }
+
+.pricing-page h1 {
+    font-size: 50px;
+}
+
 .pricing-page .head-para {
     width: 50%;
     text-align: center;
@@ -77,6 +83,7 @@ body {
 .price-table.active {
     background-color: #20a377;
     border-radius: 10px 0 0 10px;
+    color: #e0fff7;
 }
 .price-table.active .price {
     color: #e4eae8;

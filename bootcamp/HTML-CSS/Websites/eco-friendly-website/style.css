@@ -449,16 +449,21 @@ footer {
         flex-direction: column-reverse;
         width: 100vw;
     }
-    .header-right img {
+    .header-img-container {
+        width: 700px;
+        overflow: hidden;
         position: absolute;
         left: -90px;
-        top: 110px;
-        width: 600px;
+        top: 250px;
+    }
+    .header-right img {
+        width: 100%;
         height: auto;
     }
 
     .header-left {
         position: absolute;
+        top: 150px;
         z-index: 9;
         width: 90vw;
         margin: 0 auto;
@@ -480,7 +485,7 @@ footer {
     }
     .header-left p {
         font-size: 15px;
-        margin-top: 150px;
+        margin-top: 20px;
         color: #131313;
     }
     .header-left button {
@@ -491,7 +496,7 @@ footer {
         background: #131313;
         color: white;
         border-radius: 5px;
-        margin-top: 30px;
+        margin-top: 100px;
         cursor: pointer;
     }
 
@@ -533,7 +538,7 @@ footer {
 
     /* main  */
     main {
-        height: 180vh;
+        height: 150vh;
         background-color: #a5b258;
     }
     .main-wrapper { 

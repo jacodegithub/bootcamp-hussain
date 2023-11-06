@@ -40,6 +40,8 @@ body {
     background-color: #e0fff7;
     padding: 20px;
     border: 1px solid rgba(0, 0, 0, 0.1);
+    height: 500px;
+    vertical-align: middle;
 }
 .price-table .btn {
     background-color: #20a377;

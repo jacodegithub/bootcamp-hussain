@@ -391,6 +391,7 @@ footer {
 
 .bottom p {
     margin-top: 20px;
+    font-size: 8px;
 }
 .bottom .divider {
     height: 1px;
@@ -661,6 +662,5 @@ footer {
 
     .bottom p {
         margin-top: 10px;
-        font-size: 8px;
     }
 }

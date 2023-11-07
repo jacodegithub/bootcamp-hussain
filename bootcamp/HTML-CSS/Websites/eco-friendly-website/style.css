@@ -425,11 +425,33 @@ footer {
 /* TABLET RESPONSIVE  */
 @media screen and (max-width: 800px) {
 
+    /* header body  */
+    .header-body {
+        margin-top: 5rem;
+    }
+    .header-right {
+        position: absolute;
+        right: 3rem;
+        top: 10rem;
+    }
+    .header-left {
+        z-index: 9;
+    }
     /* header right section  */
     .header-img-container {
-        width: 30rem;
-        height: 550px;
+        width: 40rem;
+        height: 30rem;
         overflow: hidden;
+        position: relative;
+        filter: blur(10px);
+    }
+    .header-img-container img {
+        position: absolute;
+        width: 100%;
+        height: auto;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
     }
 
     /* article  */
@@ -444,7 +466,7 @@ footer {
     .box {
         height: 290px;
         width: 100%;
-        margin-top: 25px;
+        margin-top: 30px;
     }
     .box h3 {
        font-size: 13px;
@@ -473,6 +495,18 @@ footer {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 50px;
+    }
+
+    /* product box  */
+    .price-add2cart {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .price-add2cart button {
+        width: 11.3rem;
+        height: 2rem;
+        font-size: 1rem;
     }
 }
 

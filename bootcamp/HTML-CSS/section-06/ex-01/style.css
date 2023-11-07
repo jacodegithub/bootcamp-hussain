@@ -1,0 +1,31 @@
+* { 
+    margin: 0; 
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    height: 100vh;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: rgb(35,5,77);
+    background: linear-gradient(180deg, rgb(5, 77, 15) 0%, rgb(2, 113, 56)88%); 
+}
+
+.grid-container {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    gap: 10px;
+    padding: 50px;
+}
+
+.box {
+    background-color: rgba(172, 255, 47, 0.281);
+    border-radius: 20px;
+    border: 1px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+

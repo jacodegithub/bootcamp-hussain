@@ -247,8 +247,9 @@ main {
 .price-add2cart {
     display: flex;
     align-items: center;
+    flex-direction: column;
     justify-content: space-between;
-    gap: 35px;
+    gap: 10px;
 }
 .price-add2cart button {
     border: none;

@@ -1,0 +1,111 @@
+body {
+    height: 100vh;
+}
+
+.grids {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    /* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); */
+    /* grid-template-rows: repeat(auto-fit, minmax(300px, 1fr)); */
+
+    grid-template-rows: repeat(10, 1fr);
+    /* grid-auto-rows: minmax(180px, auto); */
+    grid-gap: 10px; 
+    /* column-gap: 10px;
+    row-gap: 10px; */
+    height: 100%;
+}
+.box {
+    background-color: greenyellow;
+}
+
+.one {
+    grid-column: span 8;
+    grid-row: span 3;
+    background-color: #7020a2;
+}
+
+.two {
+    grid-column: span 2;
+    grid-row: span 7;
+    background-color: #ca46cd;
+}
+
+.three {
+    grid-column: span 4;
+    grid-row: span 6;
+    background-color: #e29ce4;
+}
+.four {
+    grid-column: span 2;
+    grid-row: span 6;
+    background-color: #ca46cd;
+}
+.five {
+    grid-column: span 6;
+    grid-row: span 2;
+    background-color: #7020a2;
+}
+
+
+@media screen and (max-width: 800px){
+    .grids {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+    }
+    .one {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+    
+    .two { 
+        /* grid-column: 2; */
+        grid-row: span 2;
+        grid-column: span 2;
+        background-color: #e29ce4;
+    }
+    
+    .three {
+        grid-column: span 1;
+        grid-row: span 1;
+        background-color: #ca46cd;
+    }
+    .four {
+        grid-column: span 1;
+        grid-row: span 1;
+        background-color: #ca46cd;
+    }
+    .five {
+        grid-column: span 2;
+    }
+}
+
+@media screen and (max-width: 480px){
+   
+    .grids {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: repeat(8, 1fr);
+    }
+    .one {
+        grid-column: span 1;
+    }
+    
+    .two {
+        /* grid-column: 2; */
+        grid-row: span 4;
+        grid-column: span 1;
+    }
+    
+    .three {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    .four {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+    .five {
+        grid-row: span 1;
+        grid-column: span 1;
+    }
+}

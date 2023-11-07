@@ -267,7 +267,6 @@ main {
 /* price & add2cart section */
 .price-add2cart {
     display: flex;
-    /* align-items: center; */
     flex-direction: row;
     justify-content: space-between;
     gap: 40px;
@@ -512,32 +511,25 @@ footer {
 
 
 /* MOBILE RESPONSIVE */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 500px) {
 
     header {
         height: 100vh;
         overflow: hidden;
     }
-    /* nav img  */
-    nav {
-        /* display: none; */
-    }
+  
     nav .logo {
         justify-content: flex-start;
     }
     nav .logo img {
-        width: 50%;
+        width: 10%;
         height: auto;
     }
     nav .logo h2 {
         font-size: 15px;
     }
     .nav-links {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-left: 5px;
-        display: flex;
+        display: none;
     }
     .nav-links a {
         margin: 0 2px 0 2px;
@@ -547,28 +539,7 @@ footer {
 
     /* cart-login */
     .cart-login {
-        align-items: flex-end;
-    }
-    .cart-login i {
-        margin-left: 10px;
-        cursor: pointer;
-        font-size: 15px;
-    }
-
-    .header-body {
-        flex-direction: column-reverse;
-        width: 100vw;
-    }
-    .header-img-container {
-        width: 700px;
-        overflow: hidden;
-        position: absolute;
-        left: -90px;
-        top: 250px;
-    }
-    .header-right img {
-        width: 100%;
-        height: auto;
+        display: none;
     }
 
     .header-left {
@@ -599,23 +570,22 @@ footer {
         color: #131313;
     }
     .header-left button {
-        width: 100px;
-        height: 30px;
-        font-size: 15px;
-        border: none;
-        background: #131313;
-        color: white;
-        border-radius: 5px;
+        width: 150px;
+        height: 40px;
+        font-size: 17px;
         margin-top: 100px;
-        cursor: pointer;
     }
 
-    /* article */
+    /* article wrapper  */
     article {
-        height: 155vh;
-        flex-direction: column;
-        justify-content: space-around;
-        gap: 0px;
+        height: 180vh;
+    }
+    .article-wrapper {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 10px; 
+        margin-top: 50px;
+        margin-left: 50px;
     }
     /* box  */
     .box {
@@ -648,7 +618,7 @@ footer {
 
     /* main  */
     main {
-        height: 150vh;
+        height: 400vh;
         background-color: #a5b258;
     }
     .main-wrapper { 
@@ -663,25 +633,34 @@ footer {
         margin-bottom: 40px;
         color: white;
     }
+
     /* products row one  */
     .row-one {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
+        grid-template-columns: repeat(1, 1fr);
         gap: 20px;
     }
     /* products row two  */
     .row-two {
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
+        grid-template-columns: repeat(1, 1fr);
         gap: 20px;
     }
 
     /* product box  */
+    .price-add2cart {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+    .price-add2cart button {
+        width: 11.3rem;
+        height: 2rem;
+        font-size: 1rem;
+    }
+
+    /* product box  */
     .product-box {
-        height: 200px;
-        width: 130px;
+        height: 320px;
+        width: 230px;
         border-radius: 5px;
         padding: 10px;
     }
@@ -693,17 +672,18 @@ footer {
     }
     /* price & add2cart section */
     .price-add2cart {
-        gap: 15px;
+        gap: 10px;
     }
     .price-add2cart h3 {
-        font-size: 13px;
+        font-size: 15px;
     }
     .price-add2cart button {
         border: none;
         background-color: #4d4d4d;
         color: white;
-        font-size: 8px;
-        width: 50px;
+        font-size: 1rem;
+        width: 13rem;
+        height: 2.5rem;
         padding: 5px 0px;
         border-radius: 5px;
         cursor: pointer;
@@ -711,9 +691,9 @@ footer {
 
     /* main section button  */
     .main-section-btn {
-        width: 120px;
-        height: 30px;
-        font-size: 13px;
+        width: 200px;
+        height: 50px;
+        font-size: 18px;
     }
 
     /* subscription box  */
@@ -756,7 +736,6 @@ footer {
     }
     .eco-friendly p {
         font-size: 8px;
-        text-align: justify;
     }
     .links p {
         font-size: 8px;
@@ -771,5 +750,48 @@ footer {
 
     .bottom p {
         margin-top: 10px;
+    }
+
+
+    /* DISPLAYING THE ICONS IN MEDIA */
+    .check-box {
+        display: block;
+    }
+
+    label #btn, label #cancel {
+        position: absolute;
+        cursor: pointer;
+        border-radius: 5px;
+        z-index: 20;
+    }
+
+    label #btn {
+        right: 12px;
+        top: 8px;
+        font-size: 30px;
+        color: rgb(0, 0, 0);
+        height: 50px;
+        margin-top: 10px;
+    }
+
+    label #cancel {
+        left: 155px;
+        top: 15px;
+        font-size: 40px;
+        color: rgb(0, 0, 0);
+        height: 50px;
+    }
+
+    #check:not(:checked) ~ label #btn {
+        display: none;
+    }
+
+    #check:checked ~ .navbar {
+        display: none;
+    }
+
+    #check:checked ~ label #cancel {
+        pointer-events: none;
+        display: none;
     }
 }

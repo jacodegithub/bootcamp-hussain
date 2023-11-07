@@ -43,12 +43,15 @@ body {
 }
 .five {
     grid-column: span 6;
-    grid-row: span 2;
+    grid-row: span 1;
     background-color: #7020a2;
 }
 
 
 @media screen and (max-width: 800px){
+    body {
+        height: 150vh;
+    }
     .grids {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: repeat(5, 1fr);
@@ -61,14 +64,16 @@ body {
     .two { 
         /* grid-column: 2; */
         grid-row: span 2;
-        grid-column: span 2;
-        background-color: #e29ce4;
+        grid-column: span 1;
+        background-color: #ca46cd;
+        grid-row: 4;
     }
     
     .three {
-        grid-column: span 1;
-        grid-row: span 1;
-        background-color: #ca46cd;
+        grid-row: 2;
+        background-color: #e29ce4;
+        grid-column: span 2;
+        grid-row: span 2;
     }
     .four {
         grid-column: span 1;
@@ -81,24 +86,28 @@ body {
 }
 
 @media screen and (max-width: 480px){
-   
+   body {
+    height: 150vh;
+   }
     .grids {
         grid-template-columns: repeat(1, 1fr);
         grid-template-rows: repeat(8, 1fr);
     }
     .one {
         grid-column: span 1;
+        grid-row: 1;
     }
     
     .two {
         /* grid-column: 2; */
-        grid-row: span 4;
+        grid-row: span 1;
         grid-column: span 1;
     }
     
     .three {
+        grid-row: 2;
         grid-column: span 1;
-        grid-row: span 1;
+        grid-row: 2 / 6;
     }
     .four {
         grid-column: span 1;

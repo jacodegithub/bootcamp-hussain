@@ -65,33 +65,58 @@ i {
 .line {
     height: 200px;
     width: .5px;
-    background-color: white;
+    /* background-color: white; */
 }
 
 .events {
     position: absolute;
     width: 15%;
     color: white;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+}
+.events p {
+    font-size: 13px;
+    line-height: 17px;
+    color: rgba(255, 255, 255, 0.7);
 }
 .events.one {
-    top: 150px;
-    left: 200px;
+    top: 22%;
+    left: 5%;
 }
 .events.two {
-    top: 480px;
-    left: 490px;
+    top: 58%;
+    left: 25%;
 }
 .events.three {
-    top: 150px;
-    left: 780px;
+    top: 22%;
+    left: 43%;
 }
 .events.four {
-    top: 480px;
-    left: 1070px;
+    top: 58%;
+    left: 63%;
 }
 .events.five {
-    top: 150px;
-    left: 780px;
+    top: 22%;
+    left: 80%;
 }
 
+.i-wpr {
+    position: relative;
+    width: 10%;
+    height: 10%;
+    border-radius: 50%;
+}
+.i-wpr .fa-solid {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
 

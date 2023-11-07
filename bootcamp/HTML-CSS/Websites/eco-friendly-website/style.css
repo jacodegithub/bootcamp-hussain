@@ -246,7 +246,7 @@ main {
 /* price & add2cart section */
 .price-add2cart {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     flex-direction: column;
     justify-content: space-between;
     gap: 10px;

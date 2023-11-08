@@ -80,11 +80,15 @@ body {
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
+    font-size: 12px;
 }
 .two-tp {
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    background-color: #0e7802;
+    width: 100%;
+    padding: 5px 0 5px 0;
 }
 .two-tp a {
     color: white;
@@ -104,6 +108,7 @@ body {
 .two-btm a {
     color: white;
     text-decoration: none;
+    margin-bottom: 10px;
 }
 .two-btm a:hover {
     color: white;
@@ -181,10 +186,10 @@ footer {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    color: #9c9c9c;
+    color: #8e8e8e;
 }
 footer h5 {
-    margin: 10px;
+    margin: 5px;
 }
 footer p {
     font-size: 13px;

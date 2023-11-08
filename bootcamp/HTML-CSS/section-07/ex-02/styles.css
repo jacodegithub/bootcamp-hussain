@@ -1,0 +1,119 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgb(204, 204, 204);
+    height: 100vh;
+  }
+  .home-top {
+    width: 104%;
+    background-color: #073302;
+    color: white;
+    font-size: 11px;
+    font-family: tahoma;
+    height: 17px;
+    text-align: right;
+  }
+  .heading {
+    display: flex;
+  }
+  .link-container {
+    width: 104%;
+    display: flex;
+  }
+  .link {
+    flex: 1;
+    margin: 5px; /* Small margin on the right and left */
+    background-color: #073302; /* Optional: Style the inner divs as you like */
+    border: 1px solid rgb(5, 5, 5); /* Optional: Add a border to the inner divs */
+    text-align: center; /* Optional: Center the content in the inner divs */
+    color: white;
+  }
+  .main-section {
+              width: 104%;
+              display: flex;
+          }
+  
+          /* First div (30% width) */
+          .first-div {
+              flex: 30%;
+              
+              background-color: rgb(7, 51, 2);
+          }
+  
+          /* Title in the first div */
+          .title {
+              color: #ffffff;
+              font-size: 12px;
+              text-align: left;
+              background-color: rgb(52, 150, 42);
+          }
+  
+          /* List of links in the first div */
+          .link-list {
+              text-align: center;
+              list-style:circle;
+              
+          }
+  
+          .link-list li {
+              margin-bottom: 10px;
+          }
+  
+          /* Second div (70% width) */
+          .second-div {
+              flex: 70%;
+              padding: 20px;
+              background-color: #ffffff;
+          }
+  
+          /* Sub-divisions within the second div */
+          .sub-division {
+              margin-bottom: 20px;
+          }
+  
+          .quick-links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+  
+  
+  /* Quick Links text */
+  
+  .quick-links-text {
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+  }
+  
+  
+  /* Quick Links button */
+  
+  .quick-links-button {
+      background-color: #3498db;
+      color: #fff;
+      padding: 10px 20px;
+      text-align: center;
+      cursor: pointer;
+      border: none;
+  }
+  
+    /* Heading in the second div */
+    .heading {
+        font-size: 20px;
+        font-weight: bold;
+        text-align: left;
+    }
+
+    /* Paragraphs in the second div */
+    .paragraph {
+        text-align: left;
+    }
+
+    .first-div-link{
+        text-decoration: none;
+        font-size: 12px;
+        color: white;
+    }

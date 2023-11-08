@@ -437,7 +437,7 @@ footer {
         top: 10rem;
     }
     .header-left {
-        z-index: 9;
+        z-index: 5;
     }
     /* header right section  */
     .header-img-container {
@@ -757,44 +757,86 @@ footer {
 
 
     /* DISPLAYING THE ICONS IN MEDIA */
-    .check-box {
+    .nav-links {
         display: none;
     }
 
-    label #btn, label #cancel {
+    .navbar label {
+        display: block;
+        transition: .3s;
+        transition-property: color;
+    }
+    .navbar label i:hover {
+        color: #fff;
+    }
+
+    .navbar label .bx-x {
+        display: none;
+    }
+
+    #check:checked ~ .nav-links {
+        z-index: 10;
+        position: fixed;
+        background-color: #a2b24aea;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #check:checked ~ .nav-links a {
+        font-size: 20px;
+        margin-bottom: 40px;
+        margin-left: 40px;
+        background-color: white;
+        width: 50%;
+        height: 8%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 40px;
+        padding: 10px;
+    }
+
+    label .bx-menu, label .bx-x {
         position: absolute;
         cursor: pointer;
         border-radius: 5px;
         z-index: 20;
+        position: fixed;
     }
 
-    label #btn {
+    label .bx-menu {
         right: 12px;
         top: 8px;
         font-size: 30px;
         color: rgb(0, 0, 0);
         height: 50px;
         margin-top: 10px;
+        cursor: pointer;
     }
-
-    label #cancel {
+    
+    label .bx-x {
+        display: none;
         left: 155px;
         top: 15px;
         font-size: 40px;
         color: rgb(0, 0, 0);
         height: 50px;
+        cursor: pointer;
     }
 
-    #check:not(:checked) ~ label #btn {
+
+
+    #check:checked ~ label .bx-menu {
         display: none;
     }
-
-    #check:checked ~ .navbar {
-        display: none;
-    }
-
-    #check:checked ~ label #cancel {
-        pointer-events: none;
-        display: none;
+    
+    #check:checked ~ label .bx-x {
+        display: block;
     }
 }

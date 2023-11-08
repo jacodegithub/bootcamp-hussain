@@ -414,10 +414,19 @@ footer {
     background-color: rgba(128, 128, 128, 0.5);
 } 
 
+.check-box {
+    display: none;
+}
+#check {
+    display: none;
+}
 
 /* TABLET RESPONSIVE  */
 @media screen and (max-width: 800px) {
 
+    .check-box {
+        display: none;
+    }
     /* header body  */
     .header-body {
         margin-top: 5rem;
@@ -749,7 +758,7 @@ footer {
 
     /* DISPLAYING THE ICONS IN MEDIA */
     .check-box {
-        display: block;
+        display: none;
     }
 
     label #btn, label #cancel {

@@ -1,66 +1,63 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Superkicks - E-commerce Landing Page</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+<html>
+  <head>
+    <title>Shoe Shopping Page</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="logo">Superkicks</div>
-            <ul class="menu">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+      <nav>
+        <div class="logo">
+          <img
+            src="./logo.png"
+            alt="logo"
+          />
+        </div>
+        <div class="menu">
+          <a href="#">Home</a>
+          <a href="#">Products</a>
+          <a href="#">About Us</a>
+          <a href="#">Contact</a>
+        </div>
+      </nav>
     </header>
-
     <main>
-        <aside class="sidebar">
-            <h2>Filters</h2>
-            <label>
-                <input type="checkbox" name="brand" value="brand1"> Brand 1
-            </label>
-            <label>
-                <input type="checkbox" name="brand" value="brand2"> Brand 2
-            </label>
-            <label>
-                <input type="checkbox" name="size" value="size1"> Size 1
-            </label>
-            <label>
-                <input type="checkbox" name="size" value="size2"> Size 2
-            </label>
-            <label>
-                <input type="checkbox" name="occasion" value="casual"> Casual
-            </label>
-            <label>
-                <input type="checkbox" name="occasion" value="sport"> Sport
-            </label>
+      <div class="container">
+        <aside>
+          <h2>Filters</h2>
+          <label><input type="checkbox" name="brand" /> Adidas</label>
+          <label><input type="checkbox" name="brand" /> Asics</label>
+          <label><input type="checkbox" name="brand" /> Puma</label>
+          <label><input type="checkbox" name="size" /> Size 10</label>
+          <label><input type="checkbox" name="size" /> Size 9</label>
+          <label><input type="checkbox" name="size" /> Size 8</label>
+          <label><input type="checkbox" name="color" /> Red</label>
+          <label><input type="checkbox" name="color" /> Blue</label>
+          <label><input type="checkbox" name="color" /> Green</label>
         </aside>
-
-        <section class="product-gallery">
-            <article class="product">
-                <img src="https://www.superkicks.in/cdn/shop/files/3_57440da9-1d55-405e-bb8f-bfad4572f6af.jpg?v=1699089230&width=360" alt="Product 1">
-                <h3>Product 1</h3>
-                <p class="price">$99.99</p>
-            </article>
-
-            <article class="product">
-                <img src="https://www.superkicks.in/cdn/shop/files/FB8895-300-4.jpg?v=1697111033&width=360" alt="Product 2">
-                <h3>Product 2</h3>
-                <p class="price">$79.99</p>
-            </article>
-            
-            <!-- Add more products here -->
+        <section class="product-container">
+          <div class="product">
+            <div class="product-info">
+              <img src="" alt="Shoe 1">
+              <p>Y-3 CENTENNIAL HI 'BLACK'</p>
+              <p>₹ 39,999.00</p>
+            </div>
+          </div>
+          <div class="product">
+            <div class="product-info">
+              <img src="" alt="Shoe 2">
+              <p>FENTY x PUMA AVANTI L 'BLACK'</p>
+              <p>₹ 14,999.00</p>
+            </div>
+          </div>
+          <!-- More products go here -->
         </section>
+      </div>
     </main>
-
     <footer>
-        <p>&copy; 2023 Superkicks</p>
+      <div class="foo">
+        <p>© 2023 Superkicks</p>
+      </div>
     </footer>
-</body>
+  </body>
 </html>

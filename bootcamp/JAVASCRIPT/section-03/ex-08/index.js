@@ -2,7 +2,8 @@
 
 const composedWithReduce = function(functions) {
     return function(x) {
-        return functions.reduce((result, func) => func(result), x)
+        return functions.reduceRight((result, func) => func(result), x) // it iterates over arr from left and accumulates ans in result.
+        // return functions.reduce((result, func) => func(result), x)  it iterates from the left and accumulates the ans in result.
     }
 }
 

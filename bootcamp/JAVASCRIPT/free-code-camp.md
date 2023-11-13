@@ -1,0 +1,7 @@
+![Alt text](ES6.png) 
+![Alt text](<Basic JS.png>) 
+![Alt text](OOPs.png) 
+![Alt text](<Algo Scripting.png>) 
+![Alt text](DSA.png) 
+![Alt text](Debuggin.png) 
+![Alt text](<Regex Expression.png>)

@@ -6,13 +6,13 @@ async function fetchMultipleUsers(userIds) {
         const data = userIds.map(userId => 
             fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)    
         )
-
         const userPromises = await Promise.all(data);
+        // console.log(data);
 
         const userArray = await Promise.all(userPromises.map(
             res => {
                 if(!res.ok) {
-                    throw new Error(`Found no user with usre`)
+                    throw new Error(`Found no user!`)
                 }
 
                 return res.json();
@@ -24,3 +24,6 @@ async function fetchMultipleUsers(userIds) {
         console.log(err);
     }
 }
+
+const arr = [2, 4, 10];
+fetchMultipleUsers(arr);

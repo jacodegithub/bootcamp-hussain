@@ -27,24 +27,26 @@ const fib2 = function(n, dp = {}) {
 
 }
 
-const fib3 = function(n, dp = {}) {
+const fib3 = function(n) {
     
-    if(n <= 1) return 1;
+    dp = [1, 1]
 
-    if(!dp.hasOwnProperty(n)) return dp[n];
+    for(let i=2; i<=n; ++i) {
+        dp[i] = dp[i-1] + dp[i-2];
+    }
 
-    let result = fib3(n-1, dp) + fib1(n-2, dp);
-    dp[n] = result;
-    return dp[n]
+    return dp[n];
 }
 
 // function to calculate time taken by funciton to execute
 function functionTimeExecution(func, n) {
     const start = process.hrtime();
+
     console.log('start ', start)
     const result = func(n);
     const end = process.hrtime(start);
     console.log('end ', end)
+    
     console.log(`Execution time: ${end[0]}s ${end[1] / 1e6}ms`);
     
     return result;

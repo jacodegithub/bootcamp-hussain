@@ -3,12 +3,7 @@
 async function fetchUserData(userId) {
 
     try {
-        const userData = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);
-    
-        if(!userData.ok) {
-            throw new Error('Found no user, check the entered userId!.')
-        }
-    
+        const userData = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}`);    
         const data = await userData.json();
         console.log(data);
     }

@@ -2,7 +2,7 @@
 
 const Logger = {
     log(message) {
-        console.log(message);
+        console.log(`${new Date().toLocaleString()} - ${message}`);
     }
 }
 
@@ -21,9 +21,7 @@ class Library {
     constructor() {
         this.books = [];
 
-        if(this.books.length > 0){
-            Logger.log(`Library created with ${books.length} books.`)
-        }
+        if(this.books.length > 0) Logger.log(`Library created with ${books.length} books.`)
     }
 
     addBook(book) {

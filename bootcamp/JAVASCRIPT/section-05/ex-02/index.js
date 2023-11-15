@@ -13,12 +13,15 @@ async function fetchUserData(userId) {
         let username = data.username
         let email = data.email
         // let username_email = username +" "+ email;
-        console.log(`${username} ${email}`)
-        console.log(username_email);
+        processUserData(username, email);
     }
     catch(error) {
         console.log(error);
     }
+}
+
+function processUserData(username, email) {
+    console.log(`${username} ${email}`)
 }
 
 fetchUserData(2);

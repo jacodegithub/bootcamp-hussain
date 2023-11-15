@@ -15,9 +15,11 @@ class ChessBoard {
     }
 
     initializeChessBoard() {
-        const board = Array.from({length:8}, () => Array(8).fill(null));
-        board[1] = board[6] = Array(8).fill('P');
-        board[0] = board[7] = ['R', 'N', 'B', 'Q', 'K', 'B', 'N', 'R'];
+        const board = Array.from({length:8}, () => Array(8).fill('**'));
+        board[1] = Array(8).fill('WP');
+        board[6] = Array(8).fill('BP');
+        board[0] = ['WR', 'WN', 'WB', 'WQ', 'WK', 'WB', 'WN', 'WR'];
+        board[7] = ['BR', 'BN', 'BB', 'BQ', 'BK', 'BB', 'BN', 'BR'];
         // console.log(board);
         return board;
     }
@@ -31,7 +33,7 @@ class ChessBoard {
         const player = this.board[fromRow][fromCol];
         if(player && fromRow < this.board.length && fromCol < this.board.length && toRow < this.board.length && toCol < this.board.length) {
             this.board[toRow][toCol] = player;
-            this.board[fromRow][fromCol] = null;
+            this.board[fromRow][fromCol] = '**';
             console.log(`${player} moved from from ${fromRow}, ${fromCol} to ${toRow}, ${toCol}`)
         }
         else {
@@ -42,7 +44,7 @@ class ChessBoard {
     killPlayer(row, col) {
         const player = this.board[row][col];
         if(player && row < this.board.length && col < this.board.length) {
-            this.board[row][col] = null;
+            this.board[row][col] = '**';
             console.log(`${player} killed at ${row}, ${col}`)
         }
         else {

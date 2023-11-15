@@ -1,2 +1,6 @@
 
-export const addThenMultiply = a => b => a * b;
+const addThenMultiply = a => b => a * b;
+
+module.exports = {
+    addThenMultiply
+}

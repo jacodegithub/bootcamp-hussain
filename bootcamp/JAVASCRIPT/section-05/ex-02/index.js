@@ -12,7 +12,8 @@ async function fetchUserData(userId) {
         const data = await userData.json();
         let username = data.username
         let email = data.email
-        let username_email = username +" "+ email;
+        // let username_email = username +" "+ email;
+        console.log(`${username} ${email}`)
         console.log(username_email);
     }
     catch(error) {

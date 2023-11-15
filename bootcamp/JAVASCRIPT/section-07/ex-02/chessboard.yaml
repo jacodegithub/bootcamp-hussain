@@ -1,0 +1,52 @@
+- &ref_1
+  - R
+  - 'N'
+  - B
+  - Q
+  - K
+  - B
+  - 'N'
+  - R
+- &ref_0
+  - P
+  - null
+  - P
+  - null
+  - P
+  - P
+  - P
+  - P
+- - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+- - null
+  - null
+  - null
+  - P
+  - null
+  - null
+  - null
+  - null
+- - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+- - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+  - null
+- *ref_0
+- *ref_1

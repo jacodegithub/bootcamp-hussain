@@ -1,7 +1,6 @@
 
-// import { addThenMultiply } from "https://raw.githubusercontent.com/jacodegithub/bootcamp-hussain/main/bootcamp/JAVASCRIPT/section-06/ex-05/gitModule.mjs";
 
-const addThenMultiply = require('https://github.com/jacodegithub/bootcamp-hussain/blob/main/bootcamp/JAVASCRIPT/section-06/ex-05/gitModule.mjs');
+import {addThenMultiply} from 'aganitha-stn-7-ex-5';
 
 const compose = addThenMultiply(5)(9);
 

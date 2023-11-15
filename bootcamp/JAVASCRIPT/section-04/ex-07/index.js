@@ -21,7 +21,7 @@ class Catalog {
 // Library class
 class Library {
     constructor() {
-        this.catalog = new Catalog();
+        this.catalog = new Catalog(); // composition 
     }
 
     addBook(book, topic = 'General') {

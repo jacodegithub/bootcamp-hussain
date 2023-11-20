@@ -28,6 +28,7 @@ body {
     top: 0;
     left: 0;
     background-color: white;
+    z-index: 10;
 }
 
 .nav-links {
@@ -429,9 +430,10 @@ footer {
 
     /* FOOTER  */
     footer {
-        height: 100vh;
+        padding-top: 10rem;
+        height: 70vh;
         display: flex;
-        align-items: center;
+        align-items: flex-start;
         justify-content: space-around;
         color: #122c5d;
         flex-wrap: wrap;

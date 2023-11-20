@@ -1,4 +1,5 @@
 const world = document.querySelector('.world')
+// world.textContent = 'DOM'
 
 function delayPrint() {
     return setTimeout(() => {

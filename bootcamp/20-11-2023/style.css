@@ -442,6 +442,7 @@ footer {
     }
 }
 
+/* TABS  */
 @media screen and (max-width: 800px) {
 
     body {
@@ -571,6 +572,7 @@ footer {
     }
 }
 
+/* MOBILES  */
 @media screen and (max-width: 500px) {
 
     body {

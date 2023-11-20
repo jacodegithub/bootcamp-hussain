@@ -224,11 +224,12 @@ form button {
 
 /* FOOTER  */
 footer {
-    height: 60vh;
+    height: 50vh;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     color: #122c5d;
+    margin-top: 5rem;
 }
 
 .footer-left {
@@ -262,6 +263,7 @@ footer {
 
 .footer-right {
     display: flex;
+    justify-content: flex-end;
     gap: 3rem;
 }
 .footer-third {
@@ -276,15 +278,22 @@ footer {
     color: #122c5d;
 }
 
+.footer-fourth {
+    width: 35%;
+}
 .footer-fourth-para {
     display: flex;
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 }
 .footer-fourth-para p{
     width: 70%;
+}
+
+.footer-fourth h2 {
+    color: rgba(0, 0, 0, 0.6);
 }
 
 .icons {

@@ -1,0 +1,64 @@
+<!-- Dynamic List Addition - Use an input field and a button to add the input text to a list on the page each time the button is clicked. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic List Addition</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 0 10rem;
+        }
+
+        form {
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+            width: 80%;
+        }
+        .form-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 2rem 0;
+        }
+
+        .form-content label {
+            margin-right: 1rem;
+            color: white;
+        }
+        .form-content input {
+            height: 2rem;
+            width: 90%;
+            border-radius: 10px;
+            border: none;
+            padding-left: 1rem;
+        }
+        form button {
+            font-size: 2rem;
+            border-radius: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <form id="textForm">
+        <div class="form-content">
+            <label for="textarea">Type</label>
+            <input type="textarea" id="textarea" name="textarea" placeholder="Enter some text" >
+        </div>
+        <button id="btn" type="submit">+</button>
+    </form>
+    <div id="para-container">
+
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

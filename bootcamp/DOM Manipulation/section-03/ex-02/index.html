@@ -1,0 +1,74 @@
+<!-- Tabbed Content Display - Build a tab interface where clicking on a tab header shows the related content and hides others. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabbed Content Display</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .tab-container {
+            height: 50%;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+            background-color: rgb(231, 231, 231);
+            border-radius: 1rem;
+            padding: 1rem;
+        }
+
+        .tab-content {
+            padding: 10px;
+            border-bottom: 1px solid black;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .tab-content h3 {
+            cursor: pointer;
+        }
+
+        .tab-content .tab-data {
+            display: none;
+            padding-bottom: 30px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="tab-container">
+        <h1>TAB</h1>
+        <div class="tab-content">
+            <h3 id="tab1-heading" class="tab-head">Tab1</h3>
+            <p id="Tab1" class="tab-data">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. At temporibus ducimus eum fugiat consequuntur minus incidunt a, aliquam, neque magnam id reprehenderit necessitatibus nostrum expedita hic. Consequatur, et deleniti nam saepe quas ullam, nihil dolorum aperiam ipsum inventore iusto atque! Fuga accusamus molestiae voluptatum officiis minus eos aperiam ex totam, non quaerat facilis sequi. Iusto nihil totam ipsa reiciendis suscipit!
+            </p>
+        </div>
+        <div class="tab-content">
+            <h3 id="tab2-heading" class="tab-head">Tab2</h3>
+            <p id="Tab2" class="tab-data">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. At temporibus ducimus eum fugiat consequuntur minus incidunt a, aliquam, neque magnam id reprehenderit necessitatibus nostrum expedita hic. Consequatur, et deleniti nam saepe quas ullam, nihil dolorum aperiam ipsum inventore iusto atque! Fuga accusamus molestiae voluptatum officiis minus eos aperiam ex totam, non quaerat facilis sequi. Iusto nihil totam ipsa reiciendis suscipit!
+            </p>
+        </div>
+        <div class="tab-content">
+            <h3 id="tab3-heading" class="tab-head">Tab3</h3>
+            <p id="Tab3" class="tab-data">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. At temporibus ducimus eum fugiat consequuntur minus incidunt a, aliquam, neque magnam id reprehenderit necessitatibus nostrum expedita hic. Consequatur, et deleniti nam saepe quas ullam, nihil dolorum aperiam ipsum inventore iusto atque! Fuga accusamus molestiae voluptatum officiis minus eos aperiam ex totam, non quaerat facilis sequi. Iusto nihil totam ipsa reiciendis suscipit!
+            </p>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!-- Dynamic Table Modifications - Create a table with rows displaying a number sequence. Add functionality to insert a new row with the next number in the sequence and to delete the last row. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Table Modifications</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: column;
+        }
+
+        table {
+            margin-top: 2rem;
+            border-collapse: collapse;
+            width: 100%;
+            background-color: rgb(71, 71, 71);
+            width: 20%;
+            border-radius: 10px;
+        }
+
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+            color: white;
+        }
+
+        .btns {
+            width: 20%;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        button {
+            border: none;
+            padding: .6rem 1rem;
+            background-color: rgba(0, 0, 0, 0.375);
+            border-radius: 10px;
+            color: white;
+        }
+        button:hover {
+            background-color: rgb(87, 87, 87);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="btns">
+        <button id="addRowButton">Insert Row</button>
+        <button id="deleteRowButton">Delete Last Row</button>
+    </div>
+
+    <table id="numberTable">
+        <thead>
+            <tr>
+                <th>Number</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+
+    <script src="script.js"></script>
+</body>
+</html>

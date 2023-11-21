@@ -1,0 +1,62 @@
+<!-- Modal Implementation - Create a button that triggers a modal pop-up with close functionality. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal Implementation</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: black;
+        }
+
+        .modal {
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+            background-color: rgb(178, 195, 233);
+            color: black;
+            padding: 1rem;
+            margin-top: 2rem;
+            border-radius: 1rem;
+        }
+
+        .modal-content > .close-btn {
+            display: flex;
+            justify-content: flex-end;
+            text-align: right;
+            font-size: 2rem;
+            cursor: pointer;
+            font-weight: bolder;
+            color: darkred;
+        }
+
+        #openModalButton {
+            padding: .8rem 2rem;
+            border-radius: 5px;
+            font-weight: bolder;
+            cursor: pointer;
+        }
+
+    </style>
+</head>
+<body>
+    <button id="openModalButton">Open Modal</button>
+    <div class="modal" id="myModal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>Modal Title</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque laudantium fuga necessitatibus enim animi, quia quibusdam eligendi accusamus repellat commodi.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

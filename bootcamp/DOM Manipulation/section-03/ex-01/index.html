@@ -1,0 +1,44 @@
+<!-- Interactive Text Resizer - Implement a slider that adjusts the font size of a text paragraph dynamically. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Text Resizer</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .container {
+            height: 25%;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: column;
+        }
+
+        input {
+            position: absolute;
+            top: 50%;
+            width: 80%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p id="text">This is the text. To change the font size slide the slider.</p>
+        <input type="range" id="slider" min="12" max="32" value="16" oninput="updateFontSize()">
+        <p id="sliderOutput">Font size: 16px</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!-- Textarea Character Counter - Display a live count of characters entered in a textarea, updating with each keystroke. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Textarea Character Counter</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        textarea {
+            width: 50%;
+            height: 50%;
+            border-radius: 5px;
+            padding-left: 1rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+       
+
+    </style>
+</head>
+<body>
+    
+    <label for="textarea">Type something</label>
+    <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
+    <p>Character Count: <span id="char-count">0</span></p>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!-- Real-Time List Filter - Implement a search box that filters items in a list as you type, hiding non-matching items. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time List Filter</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: rgb(128, 128, 128);
+        }
+
+        input {
+            width: 20rem;
+            height: 3rem;
+            padding-left: 1rem;
+            border-radius: .5rem;
+            border: none;
+        }
+
+        #item-list li {
+            display: none;
+            color: black;
+        }
+
+    </style>
+</head>
+<body>
+    <input id="input" type="text" id="searchInput" placeholder="Search..." />
+
+    <ul id="item-list">
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+        <li>four</li>
+        <li>five</li>
+        <li>six</li>
+        <li>seven</li>
+        <li>eight</li>
+        <li>nine</li>
+        <li>ten</li>
+    </ul>
+    <script src="script.js"></script>
+</body>
+</html>

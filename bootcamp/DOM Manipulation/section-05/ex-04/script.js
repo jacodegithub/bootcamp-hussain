@@ -1,8 +1,15 @@
-const thumbnail = document.querySelectorAll('.thumbnail')
+document.addEventListener('DOMContentLoaded', function() {
+    const progressBar = document.querySelector('.progress-bar');
+    const bar = document.querySelector('.bar');
 
-thumbnail.forEach(thumbnail => {
-    thumbnail.addEventListener('click', (e) => {
-        console.log(thumbnail.children[0].src)
-        document.querySelector('.main-image').children[0].src = thumbnail.children[0].src;
+    window.addEventListener('scroll', () => {
+        progressBar.style.display = 'block';
+    })
+
+    window.addEventListener('scroll', () => {
+        const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+        console.log(window.innerHeight);
+        const scrolled = (window.scrollY / scrollHeight) * 100;
+        bar.style.width = `${scrolled}%`;
     })
 })

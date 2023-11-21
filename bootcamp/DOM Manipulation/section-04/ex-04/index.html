@@ -1,0 +1,36 @@
+<!-- Input Autocomplete - Create an input field that suggests completions from a predefined list as you type -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input Autocomplete</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        input {
+            width: 50%;
+            height: 5%;
+            border-radius: 5px;
+            padding-left: 1rem;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+       
+
+    </style>
+</head>
+<body>
+    
+    <label for="autocomplete">Search</label>
+    <input type="text" id="autocomplete" placeholder="Type..."></input>
+    <ul id="autocomplete-list"></ul>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,29 +1,26 @@
-let numberSequence = 1;
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('#myForm');
 
-function addRow() {
-    const tableBody = document.getElementById('numberTable').querySelector('tbody')
-    const newRow = document.createElement('tr');
-    const newCell = document.createElement('td');
+    const email = document.querySelector('#email')
+    const name = document.querySelector('#name')
 
-    newCell.textContent = numberSequence++;
-    newRow.appendChild(newCell);
-    tableBody.appendChild(newRow);
-}
+    const input = document.getElementsByTagName('input')
+    
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+        // console.log('input ',input, input[0].value, input[1].value)
+        // const arr = Array.from(input).forEach(item => console.log(item.value))
+        // const formData = new FormData(form);
+        const formDataObj = {
+            name: input[0].value,
+            email: input[1].value
+        }
 
-function deleteRow() {
-    const tableBody = document.getElementById('numberTable').querySelector('tbody');
-    if(tableBody.hasChildNodes()) {
-        tableBody.removeChild(tableBody.lastChild)
-    }
-}
+        // console.log(formData)
+        // formData.forEach((key, value) => {
+        //     formDataObj[key] = value
+        // })
 
-addRow();
-
-document.querySelector('#addRowButton').addEventListener('click', () => {
-    addRow();
+        console.log('Object', formDataObj)
+    })
 })
-
-document.querySelector('#deleteRowButton').addEventListener('click', () => {
-    deleteRow();
-})
-

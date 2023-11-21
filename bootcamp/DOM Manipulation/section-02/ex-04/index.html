@@ -1,0 +1,29 @@
+<!-- Specific Key Alert - Show an alert when a particular key (e.g., 'A') is pressed. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Alert</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            padding: 0 10rem;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        document.addEventListener('keydown', (e) => {
+            console.log(e)
+            if(e.code === 'KeyA' || e.code === 'KeyS' || e.code === 'KeyD') {
+                alert(`You pressed ${e.key} key`)
+            }
+        })
+    </script>
+</body>
+</html>

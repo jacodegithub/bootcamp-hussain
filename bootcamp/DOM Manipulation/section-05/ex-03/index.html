@@ -1,0 +1,55 @@
+<!-- Dark/Light Mode Switch - Add a switch to toggle between dark and light themes for the page. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark/Light Mode Switch</title>
+    <style>
+        body {
+            height: 100vh;
+            background-color: #333;
+            transition: background-color 0.5s ease;
+        }
+
+        .switch {
+          position: absolute;
+          left: 2rem;
+          top: 2rem;
+          width: 5.5rem;
+          height: 2.5rem;
+          background-color: #111;
+          position: relative;
+          border-radius: 5px;
+        }
+
+        .switch::before {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(30%, -50%);
+          height: 2rem;
+          width: 1.5rem;
+          background-color: #ddd;
+          cursor: pointer;
+          border-radius: 2px;
+          transition: transform 0.3s ease;
+        }
+        
+        /* JAVASCRIPT  */
+        .light {
+          background-color: #eee;
+        }
+        .switch.active::before {
+            transform: translate(235%, -50%);
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="switch"></div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!-- Email Validator - Create a form with an email input and display a message if the input is not a valid email format on form submission. -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validator</title>
+    <style>
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        form {
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1rem;
+        }
+        .form-content {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            margin: 2rem 0;
+        }
+
+        .form-content label {
+            margin-right: 1rem;
+            color: white;
+        }
+        .form-content input {
+            height: 2rem;
+            width: 15rem;
+            border-radius: 10px;
+            border: none;
+            padding-left: 1rem;
+        }
+        form button {
+            height: 2rem;
+            border-radius: 1rem;
+            border: none;
+            width: 6rem;
+        }
+    </style>
+</head>
+<body>
+    <form id="emailForm">
+        <div class="form-content">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" >
+        </div>
+        <button id="btn" type="submit">Sign Up</button>
+    </form>
+    <p class="error-message" id="errorMessage"></p>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!-- Scroll Progress Indicator - Implement a progress bar that reflects the user's scroll position on the page. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Progress Indicator</title>
+    <style>
+        body {
+            height: 100vh;
+            box-sizing: border-box;
+            margin: 0;
+            padding: 2rem;
+        }
+        
+        .number-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(5rem, 1fr));
+            gap: 10px;
+            /* background-color: grey; */
+            height: 100%;
+        }
+
+        .number {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: #332;
+        }
+
+        .even {
+            background-color: greenyellow;
+        }
+
+        .odd {  
+            background-color: yellow;
+        }
+
+        .prime {
+            background-color: lightcoral;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="number-container" id="number-grid"></div>
+    <script src="script.js"></script>
+</body>
+</html>

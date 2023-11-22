@@ -1,6 +1,6 @@
 const numberGrid = document.querySelector('#number-grid')
 
-for(let number=1; number<=100; ++number) {
+for(let number=100; number<=1000; ++number) {
     const numberElement = document.createElement('div')
     numberElement.classList.add('number')
     console.log(number)

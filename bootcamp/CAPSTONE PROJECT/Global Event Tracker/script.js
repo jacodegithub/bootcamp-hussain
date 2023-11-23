@@ -19,28 +19,28 @@
 
 const apiUrl2 = `https://api.mockaroo.com/api/bebcf080?count=200&key=9ea192d0`
 
-const apiKey = 'XHqhouklggXQZ2NCadGIAVke0ARZPPns';
-const apiUrl = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}`;
+// const apiKey = 'XHqhouklggXQZ2NCadGIAVke0ARZPPns';
+// const apiUrl = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}`;
 
-// Function to fetch events data
-const fetchEvents = async () => {
-    try {
+// // Function to fetch events data
+// const fetchEvents = async () => {
+//     try {
 
-        const response = await fetch(apiUrl);
+//         const response = await fetch(apiUrl);
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
 
-        const eventsData = await response.json();
+//         const eventsData = await response.json();
 
-        console.log('Events Data:', eventsData);
+//         console.log('Events Data:', eventsData);
 
-    } catch (error) {
-        console.error('Error fetching events data:', error.message);
-        // Handle the error, e.g., show a user-friendly message
-    }
-};
+//     } catch (error) {
+//         console.error('Error fetching events data:', error.message);
+//         // Handle the error, e.g., show a user-friendly message
+//     }
+// };
 
 
 const mockFetchEvents = async () => {
@@ -122,7 +122,7 @@ const mockFetchEvents = async () => {
 // fetchEvents();
 // fetchMap();
 
-mockFetchEvents();
+
 
 // FOR GENERATING MAPS 
 
@@ -147,11 +147,13 @@ function addMarkerByCityName(cityName, date) {
         } else {
           console.error('Geocoding failed for the city:', cityName);
         }
-      })
-      .catch(error => {
-        console.error('Error fetching geocoding data:', error.message);
-      });
-  }
+    })
+    .catch(error => {
+    console.error('Error fetching geocoding data:', error.message);
+    });
+}
+
+mockFetchEvents();
 
   // Example: Adding a marker for a city (e.g., Paris)
 

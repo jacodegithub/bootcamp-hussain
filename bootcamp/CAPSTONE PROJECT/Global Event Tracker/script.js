@@ -1,52 +1,19 @@
-//  async function fetchData() {
+// USING LEAFLET MAP 
+var map = L.map('map').setView([51.505, -0.09], 13);
 
-//     const token = 'MQIHIVXCGMUGDOQA4VQM'
-//     const urlApi = `https://www.eventbriteapi.com/v3/users/me/?token=${token}`;
+L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    maxZoom: 19,
+    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+}).addTo(map);
 
-//     try {
-//         const response = await fetch(urlApi)
-//         const data = await response.json()
-//         console.log(data);
-//     }
-//     catch (error) {
-//         console.log(error);
-//     }
-//  }
+// API URL 
+const apiUrl = `https://api.mockaroo.com/api/bebcf080?count=200&key=9ea192d0`
 
-//  fetchData();
-
-// In your frontend code (e.g., using React and Fetch API)
-
-const apiUrl2 = `https://api.mockaroo.com/api/bebcf080?count=200&key=9ea192d0`
-
-// const apiKey = 'XHqhouklggXQZ2NCadGIAVke0ARZPPns';
-// const apiUrl = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}`;
-
-// // Function to fetch events data
-// const fetchEvents = async () => {
-//     try {
-
-//         const response = await fetch(apiUrl);
-
-//         if (!response.ok) {
-//             throw new Error('Network response was not ok');
-//         }
-
-//         const eventsData = await response.json();
-
-//         console.log('Events Data:', eventsData);
-
-//     } catch (error) {
-//         console.error('Error fetching events data:', error.message);
-//         // Handle the error, e.g., show a user-friendly message
-//     }
-// };
-
-
+// FETCHIN EVENTS DATA
 const mockFetchEvents = async () => {
     try {
 
-        const response = await fetch(apiUrl2);
+        const response = await fetch(apiUrl);
 
         if (!response.ok) {
             throw new Error('Network response was not ok');
@@ -58,30 +25,36 @@ const mockFetchEvents = async () => {
             // console.log(data.location)
             addMarkerByCityName(data.location, data.date);
         })
-        if (events_data) {
-            // let cur = json.current;
-            let loc = events_data.location;
-            // let latLon = [loc.lat, loc.lon];
-
-            // L.circle(latLon, {
-            //     color: 'red',
-            //     fillColor: '#f03',
-            //     fillOpacity: 0.5,
-            //     radius: 10
-            // }).addTo(map);
-
-            L.marker(latLon).addTo(map).bindPopup(`Location: ${json.name}, ${json.sys.country}<br>temperature: ${json.main.temp}&#8451;<br>
-            Humidity: ${json.main.humidity}%<br>
-            Weather: ${json.weather[0].description}`).openPopup();
-
-            map.panTo(latLon)
-        }
-        //   console.log('Mock Events Data:', eventsData);
 
     } catch (error) {
         console.error('Error fetching events data:', error.message);
     }
 };
+
+// ADDING MARKER FUNCTION
+function addMarkerByCityName(cityName, date) {
+    const apiKey = 'e22906d0cf8c4a7d82fcd1c41a847725';
+    const geocodingUrl = `https://api.opencagedata.com/geocode/v1/json?q=${cityName}&key=${apiKey}`;
+
+    fetch(geocodingUrl)
+      .then(response => response.json())
+      .then(data => {
+        if (data.results && data.results.length > 0) {
+          const location = data.results[0].geometry;
+          const marker = L.marker([location.lat, location.lng]).addTo(map);
+          marker.bindPopup(`City: ${cityName}, Date: ${date}`).openPopup();
+        } else {
+          console.error('Geocoding failed for the city:', cityName);
+        }
+    })
+    .catch(error => {
+    console.error('Error fetching geocoding data:', error.message);
+    });
+}
+
+mockFetchEvents();
+
+
 
 //   const zoom = 3;
 //   const x = 5;
@@ -126,35 +99,6 @@ const mockFetchEvents = async () => {
 
 // FOR GENERATING MAPS 
 
-var map = L.map('map').setView([51.505, -0.09], 13);
-
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
-
-function addMarkerByCityName(cityName, date) {
-    const apiKey = 'e22906d0cf8c4a7d82fcd1c41a847725';
-    const geocodingUrl = `https://api.opencagedata.com/geocode/v1/json?q=${cityName}&key=${apiKey}`;
-
-    fetch(geocodingUrl)
-      .then(response => response.json())
-      .then(data => {
-        if (data.results && data.results.length > 0) {
-          const location = data.results[0].geometry;
-          const marker = L.marker([location.lat, location.lng]).addTo(map);
-          marker.bindPopup(`City: ${cityName}, Date: ${date}`).openPopup();
-        } else {
-          console.error('Geocoding failed for the city:', cityName);
-        }
-    })
-    .catch(error => {
-    console.error('Error fetching geocoding data:', error.message);
-    });
-}
-
-mockFetchEvents();
-
   // Example: Adding a marker for a city (e.g., Paris)
 
 // const searchBox = document.querySelector('.search-box')
@@ -193,3 +137,27 @@ mockFetchEvents();
 //         }
 //     })
 // })
+
+
+// const apiKey = 'XHqhouklggXQZ2NCadGIAVke0ARZPPns';
+// const apiUrl = `https://app.ticketmaster.com/discovery/v2/events.json?apikey=${apiKey}`;
+
+// // Function to fetch events data
+// const fetchEvents = async () => {
+//     try {
+
+//         const response = await fetch(apiUrl);
+
+//         if (!response.ok) {
+//             throw new Error('Network response was not ok');
+//         }
+
+//         const eventsData = await response.json();
+
+//         console.log('Events Data:', eventsData);
+
+//     } catch (error) {
+//         console.error('Error fetching events data:', error.message);
+//         // Handle the error, e.g., show a user-friendly message
+//     }
+// };

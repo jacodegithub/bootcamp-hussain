@@ -252,8 +252,6 @@ nav .nav-links a:last-child:hover {
     justify-content: center;
     flex-direction: column;
     cursor: pointer;
-    /* height: 6rem;
-    width: 6rem; */
 }
 
 .icons .icons-svg {
@@ -296,7 +294,7 @@ nav .nav-links a:last-child:hover {
 
 .cards-section-wrapper {
     height: 100%;
-    padding-top: 2rem;
+    padding-top: 4rem;
 }
 
 .filter-btn {
@@ -334,7 +332,6 @@ nav .nav-links a:last-child:hover {
 
 .filter-form {
     gap: .2rem;
-    /* display: none; */
     position: absolute;
     top: 50%;
     left: 50%;

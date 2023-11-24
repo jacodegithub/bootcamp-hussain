@@ -147,16 +147,85 @@ function applyFilters(events_data) {
     const nameFilter = document.querySelector('.name-filter')
     const dateFilter = document.querySelector('.date-filter')
     const locationFilter = document.querySelector('.location-filter')
-    const filter = document.querySelector('.category-filter')
+    // const filter = document.querySelector('.category-filter')
     const catFilter = document.querySelector('.category-filter')
     const ticketPriceFilter = document.querySelector('.ticket-price-filter')
     const statusFilter = document.querySelector('.status-filter')
     const rateFilter = document.querySelector('.rate-filter')
     
     const filteredData = events_data.filter(data => {
-    
+        console.log(data);
+        const eventCat = data.category.toLowerCase();
+        const eventDate = data.date;
+        const eventDetails = data.description;
+        const eventLocation = data.location.toLowerCase();
+        const eventOrganizer = data.name.toLowerCase();
+        const eventParticipantFeedback = data.participant_Feedback;
+        const eventTotalParticipants = data.participants;
+        const eventRating = Math.floor(data.rating);
+        const eventStatus = data.status;
+        const eventTicketPrice = data.ticket_price.replace(/[^0-9]/, '');
+        const eventAddress = data.venue;
+
+
+        console.log('date', eventDate);
+
     })
 }
+/*
+
+category
+: 
+"Cooking"
+coordinates
+: 
+"Sydney (33.8688° S"
+date
+: 
+"9/11/2018"
+description
+: 
+"Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum. In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo. Aliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis. Sed ante. Vivamus tortor. Duis mattis egestas metus. Aenean fermentum. Donec ut mauris eget massa tempor convallis. Nulla neque libero, convallis eget, eleifend luctus, ultricies eu, nibh. Quisque id justo sit amet sapien dignissim vestibulum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nulla dapibus dolor vel est. Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst. Etiam faucibus cursus urna. Ut tellus. Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat."
+id
+: 
+1
+image
+: 
+"https://example.com/images/event6.jpg"
+location
+: 
+"Dublin"
+name
+: 
+"Sarah Thompson"
+organizer
+: 
+"Wikido"
+organizer_Details
+: 
+"Sed vel enim sit amet nunc viverra dapibus. Nulla suscipit ligula in lacus. Curabitur at ipsum ac tellus semper interdum. Mauris ullamcorper purus sit amet nulla."
+participant_Feedback
+: 
+"Great job!"
+participants
+: 
+963
+popularity_Score
+: 
+4.6
+rating
+: 
+4.4
+status
+: 
+"Active"
+ticket_price
+: 
+"$02,409.97"
+venue
+: 
+"Apt 231"
+*/
 
 // CALLING FUNCTIONS
 mockFetchEvents();

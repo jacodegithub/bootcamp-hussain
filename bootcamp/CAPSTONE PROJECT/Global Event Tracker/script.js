@@ -1,59 +1,75 @@
 // USING LEAFLET MAP 
-var map = L.map('map').setView([51.505, -0.09], 13);
+// var map = L.map('map').setView([51.505, -0.09], 13);
 
-L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 19,
-    attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-}).addTo(map);
+// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+//     maxZoom: 19,
+//     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+// }).addTo(map);
 
-// API URL 
-const apiUrl = `https://api.mockaroo.com/api/bebcf080?count=200&key=9ea192d0`
+document.addEventListener('DOMContentLoaded', function() {
+    // API URL 
+    const apiUrl = `https://api.mockaroo.com/api/bebcf080?count=200&key=9ea192d0`
 
-// FETCHIN EVENTS DATA
-const mockFetchEvents = async () => {
-    try {
+    // FETCHIN EVENTS DATA
+    const mockFetchEvents = async () => {
+        try {
 
-        const response = await fetch(apiUrl);
+            const response = await fetch(apiUrl);
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const events_data = await response.json();
+            console.log(events_data);
+            setTimeout(() => {
+                events_data.map(data => {
+                    // console.log(data.location)
+                    // addMarkerByCityName(data.location, data.date);
+                })
+            }, 5000)
+
+        } catch (error) {
+            console.error('Error fetching events data:', error.message);
         }
+    };
 
-        const events_data = await response.json();
-        console.log(events_data);
-        events_data.map(data => {
-            // console.log(data.location)
-            addMarkerByCityName(data.location, data.date);
+    // ADDING MARKER FUNCTION
+    function addMarkerByCityName(cityName, date) {
+        const apiKey = 'e22906d0cf8c4a7d82fcd1c41a847725';
+        const geocodingUrl = `https://api.opencagedata.com/geocode/v1/json?q=${cityName}&key=${apiKey}`;
+
+        fetch(geocodingUrl)
+        .then(response => response.json())
+        .then(data => {
+            if (data.results && data.results.length > 0) {
+            const location = data.results[0].geometry;
+            const marker = L.marker([location.lat, location.lng]).addTo(map);
+            marker.bindPopup(`City: ${cityName}, Date: ${date}`).openPopup();
+            } else {
+            console.error('Geocoding failed for the city:', cityName);
+            }
         })
-
-    } catch (error) {
-        console.error('Error fetching events data:', error.message);
+        .catch(error => {
+        console.error('Error fetching geocoding data:', error.message);
+        });
     }
-};
 
-// ADDING MARKER FUNCTION
-function addMarkerByCityName(cityName, date) {
-    const apiKey = 'e22906d0cf8c4a7d82fcd1c41a847725';
-    const geocodingUrl = `https://api.opencagedata.com/geocode/v1/json?q=${cityName}&key=${apiKey}`;
 
-    fetch(geocodingUrl)
-      .then(response => response.json())
-      .then(data => {
-        if (data.results && data.results.length > 0) {
-          const location = data.results[0].geometry;
-          const marker = L.marker([location.lat, location.lng]).addTo(map);
-          marker.bindPopup(`City: ${cityName}, Date: ${date}`).openPopup();
-        } else {
-          console.error('Geocoding failed for the city:', cityName);
+    // HERO CAROUSAL 
+    let count = 1;
+    setInterval(function() {
+        document.querySelector('#radio'+count).checked = true;
+        count++;
+        
+        if(count > 4) {
+            count = 1;
         }
-    })
-    .catch(error => {
-    console.error('Error fetching geocoding data:', error.message);
-    });
-}
+    }, 4000)
 
-mockFetchEvents();
 
+    mockFetchEvents();
+})
 
 
 //   const zoom = 3;

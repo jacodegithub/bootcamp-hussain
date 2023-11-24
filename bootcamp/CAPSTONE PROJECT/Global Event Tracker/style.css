@@ -1,8 +1,14 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', sans-serif;
-    padding: 0;
-    margin: 0;
-    background-color: #233;
+    height: 100vh;
+    font-size: 100%;
+    /* background-color: #233; */
 }
 
 .container {
@@ -51,3 +57,153 @@ body {
     border-radius: 50%;
     background-color: #233;
 }
+
+
+.max-width {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* NAVBAR  */
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    position: fixed;
+    height: 8%;
+    left: 0;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+nav .logo {
+    padding-left: 1rem;
+    color: #f44336;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav .nav-links {
+    width: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 1rem;
+}
+
+nav .nav-links a {
+    text-decoration: none;
+    color: #233;
+}
+
+
+/* HERO SECTION  */
+.hero-section {
+    /* background-color: #233; */
+    height: 75%;
+    margin-top: 3.8rem;
+}
+
+.slider {
+    width: 99%;
+    height: 100%;
+    /* border-radius: 1rem; */
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+}
+
+.slides {
+    width: 500%;
+    height: 40rem;
+    display: flex;
+}
+
+.slides input {
+    display: none;
+}
+
+.slide {
+    width: 20%;
+    transition: 2s;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+}
+
+.navigation-manual {
+    position: absolute;
+    width: 100%;
+    /* margin-top: -40px; */
+    display: flex;
+    justify-content: center;
+    bottom: 2rem;
+}
+
+.manual-btn {
+    border: 2px solid #eee;
+    padding: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .5s ease;
+    margin-left: 4rem;
+}
+
+.manual-btn:hover {
+    background-color: white;
+}
+
+#radio1:checked ~ .first {
+    margin-left: 0%;
+}
+
+#radio2:checked ~ .first {
+    margin-left: -20%;
+}
+
+#radio3:checked ~ .first {
+    margin-left: -40%;
+}
+
+#radio4:checked ~ .first {
+    margin-left: -60%;
+}
+
+.navigation-auto {
+    position: absolute;
+    width: 100%;
+    /* margin-top: -40px; */
+    display: flex;
+    justify-content: center;
+    bottom: 2rem;
+}
+.navigation-auto div {
+    border: 2px solid #111;
+    padding: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: .2s ease;
+    margin-left: 4rem;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1 {
+    background-color: #233;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2 {
+    background-color: #233;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3 {
+    background-color: #233;
+}
+
+#radio4:checked ~ .navigation-auto .auto-btn4 {
+    background-color: #233;
+}
+

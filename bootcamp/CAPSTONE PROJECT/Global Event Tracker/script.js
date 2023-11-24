@@ -7,55 +7,6 @@
 // }).addTo(map);
 
 document.addEventListener('DOMContentLoaded', function() {
-    // API URL 
-    const apiUrl = `https://api.mockaroo.com/api/bebcf080?count=200&key=9ea192d0`
-
-    // FETCHIN EVENTS DATA
-    const mockFetchEvents = async () => {
-        try {
-
-            const response = await fetch(apiUrl);
-
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-
-            const events_data = await response.json();
-            console.log(events_data);
-            setTimeout(() => {
-                events_data.map(data => {
-                    // console.log(data.location)
-                    // addMarkerByCityName(data.location, data.date);
-                })
-            }, 5000)
-
-        } catch (error) {
-            console.error('Error fetching events data:', error.message);
-        }
-    };
-
-    // ADDING MARKER FUNCTION
-    function addMarkerByCityName(cityName, date) {
-        const apiKey = 'e22906d0cf8c4a7d82fcd1c41a847725';
-        const geocodingUrl = `https://api.opencagedata.com/geocode/v1/json?q=${cityName}&key=${apiKey}`;
-
-        fetch(geocodingUrl)
-        .then(response => response.json())
-        .then(data => {
-            if (data.results && data.results.length > 0) {
-            const location = data.results[0].geometry;
-            const marker = L.marker([location.lat, location.lng]).addTo(map);
-            marker.bindPopup(`City: ${cityName}, Date: ${date}`).openPopup();
-            } else {
-            console.error('Geocoding failed for the city:', cityName);
-            }
-        })
-        .catch(error => {
-        console.error('Error fetching geocoding data:', error.message);
-        });
-    }
-
-
     // HERO CAROUSAL 
     let count = 1;
     setInterval(function() {
@@ -66,11 +17,149 @@ document.addEventListener('DOMContentLoaded', function() {
             count = 1;
         }
     }, 4000)
-
-
-    mockFetchEvents();
+    
 })
 
+    // ADDING MARKER FUNCTION
+function addMarkerByCityName(cityName, date) {
+    const apiKey = 'e22906d0cf8c4a7d82fcd1c41a847725';
+    const geocodingUrl = `https://api.opencagedata.com/geocode/v1/json?q=${cityName}&key=${apiKey}`;
+
+    fetch(geocodingUrl)
+    .then(response => response.json())
+    .then(data => {
+        if (data.results && data.results.length > 0) {
+        const location = data.results[0].geometry;
+        const marker = L.marker([location.lat, location.lng]).addTo(map);
+        marker.bindPopup(`City: ${cityName}, Date: ${date}`).openPopup();
+        } else {
+        console.error('Geocoding failed for the city:', cityName);
+        }
+    })
+    .catch(error => {
+    console.error('Error fetching geocoding data:', error.message);
+    });
+}
+
+// DATA API URL
+const apiUrl = `https://api.mockaroo.com/api/bebcf080?count=100&key=9ea192d0`
+
+// FETCHING DATA
+const mockFetchEvents = async () => {
+    try {
+
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+
+        const events_data = await response.json();
+        console.log(events_data);
+
+        applyFilters(events_data);
+        populateFilterOption(events_data);
+
+        setTimeout(() => {
+            events_data.map(data => {
+                // console.log(data.location)
+                // addMarkerByCityName(data.location, data.date);
+            })
+        }, 5000)
+
+    } catch (error) {
+        console.error('Error fetching events data:', error.message);
+    }
+};
+
+// TYPES
+const heroIcon = document.querySelectorAll('.icons');
+heroIcon.forEach(icon => {
+    icon.addEventListener('click', () => {
+        console.log(icon.childNodes[3].textContent);
+    })
+})
+
+
+// MAKING FILTER FUNCTIONS
+let openFilterButton = document.querySelector('#filter-btn');
+let formContainer = document.querySelector('.form-container')
+let closeForm = document.querySelector('.form-close')
+
+openFilterButton.addEventListener('click', () => {
+    formContainer.style.display = 'block';
+})
+closeForm.addEventListener('click', () => {
+    formContainer.style.display = 'none';
+})
+window.addEventListener('click', (e) => {
+    if(e.target === formContainer) {
+        formContainer.style.display = 'none';
+    }
+})
+
+// FUNCTION TO POPULATE FILTER OPTION
+function populateFilterOption(events) {
+    const uniqueNames = [...new Set(events.map(event => event.name))];
+    populateSelectOptions('name-filter', uniqueNames)
+    
+    const uniqueDates = [...new Set(events.map(event => event.date))];
+    // populateSelectOptions('date-filter', uniqueDates)
+
+    const uniqueLocations = [...new Set(events.map(event => event.location))];
+    populateSelectOptions('location-filter', uniqueLocations)
+
+    const uniqueCategories = [...new Set(events.map(event => event.category))];
+    populateSelectOptions('category-filter', uniqueCategories)
+
+    const uniquePrices = [...new Set(events.map(event => event.ticket_price))];
+    // populateSelectOptions('ticket-price-filter', uniquePrices)
+
+    const uniqueStatus = [...new Set(events.map(event => event.status))];
+    populateSelectOptions('status-filter', uniqueStatus)
+
+    const uniqueRating = [...new Set(events.map(event => event.rating))];
+    // populateSelectOptions('rate-filter', uniqueRating)
+
+}
+
+function populateSelectOptions(selectId, options) {
+const selectElement = document.querySelector(`.${selectId}`);
+options.forEach(option => {
+    const optionElement = document.createElement('option');
+    optionElement.value = option;
+    optionElement.textContent = option;
+    selectElement.appendChild(optionElement);
+});
+}
+
+const ratingRange = document.getElementById('ratingFilter');
+const sliderValue = document.getElementById('sliderValue');
+
+// Update the displayed value when the slider changes
+ratingRange.addEventListener('input', function () {
+    sliderValue.textContent = ratingRange.value;
+});
+
+
+// FILTERING DATA AFTER GETTING INPUT
+function applyFilters(events_data) {
+    const nameFilter = document.querySelector('.name-filter')
+    const dateFilter = document.querySelector('.date-filter')
+    const locationFilter = document.querySelector('.location-filter')
+    const filter = document.querySelector('.category-filter')
+    const catFilter = document.querySelector('.category-filter')
+    const ticketPriceFilter = document.querySelector('.ticket-price-filter')
+    const statusFilter = document.querySelector('.status-filter')
+    const rateFilter = document.querySelector('.rate-filter')
+    
+    const filteredData = events_data.filter(data => {
+    
+    })
+}
+
+// CALLING FUNCTIONS
+mockFetchEvents();
 
 //   const zoom = 3;
 //   const x = 5;

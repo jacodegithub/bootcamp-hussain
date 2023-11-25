@@ -288,7 +288,7 @@ nav .nav-links a:last-child:hover {
 
 /* CARDS SECTION  */
 .cards-section {
-    height: 100vh;
+    height: 150vh;
     background-color: #efe;
     position: relative;
 }
@@ -318,6 +318,9 @@ nav .nav-links a:last-child:hover {
     color: #233;
 }
 
+.button-area {
+    margin-bottom: 3%;
+}
 
  /* FILTER SECTION  */
  .form-container {

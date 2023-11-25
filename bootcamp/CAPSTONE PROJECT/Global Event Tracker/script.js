@@ -1,3 +1,5 @@
+import { event_data } from "./eventData.js";
+
 // USING LEAFLET MAP 
 // var map = L.map('map').setView([51.505, -0.09], 13);
 
@@ -5,7 +7,6 @@
 //     maxZoom: 19,
 //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 // }).addTo(map);
-
 
 
 
@@ -60,14 +61,14 @@ const mockFetchEvents = async () => {
         // }
 
         // const events_data = await response.json();
-        console.log(events_data);
+        console.log(event_data);
 
-        applyFilters(events_data);
-        populateFilterOption(events_data);
-        renderingEventCards(events_data);
+        applyFilters(event_data);
+        populateFilterOption(event_data);
+        renderingEventCards(event_data);
 
         setTimeout(() => {
-            events_data.map(data => {
+            event_data.map(data => {
                 // console.log(data.location)
                 // addMarkerByCityName(data.location, data.date);
             })
@@ -150,6 +151,7 @@ ratingRange.addEventListener('input', function () {
 
 // FILTERING DATA AFTER GETTING INPUT
 function applyFilters(events_data) {
+    console.log(events_data);
     const nameFilter = document.querySelector('.name-filter')
     const dateFilter = document.querySelector('#dateFilter')
     const locationFilter = document.querySelector('.location-filter')
@@ -169,7 +171,6 @@ function applyFilters(events_data) {
         
 
         const filteredData = events_data.filter(data => {
-        
             const eventCat = data.category.toLowerCase();
             const eventDate = data.date;
             const eventDetails = data.description;
@@ -210,13 +211,14 @@ function applyFilters(events_data) {
 let visibleDialogues = 8;
 function renderingEventCards(events) {
     const card_container = document.querySelector('.cards-container');
-
+    
+    console.log('render ', events.length);
     // Clear previous content
     card_container.innerHTML = '';
-
-    for(let i=0;i < visibleDialogues && i<events.length; ++i) {
-
-        eve_card = events[i];
+    
+    for(let i=0;i < 8 && i<events.length; ++i) {
+        
+        let eve_card = events[i];
 
         let each_card = document.createElement('div')
         each_card.classList.add('eve-card')

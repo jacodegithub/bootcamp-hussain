@@ -7,7 +7,6 @@
 body {
     font-family: 'Segoe UI', sans-serif;
     /* height: 100vh; */
-    font-size: 100%;
     /* background-color: #233; */
 }
 
@@ -244,6 +243,8 @@ nav .nav-links a:last-child:hover {
     height: 100%;
     gap: 1rem;
     padding: 2rem 0;
+    width: 100vw;
+    overflow: auto;
 }
 
 .icons {
@@ -484,4 +485,29 @@ nav .nav-links a:last-child:hover {
 }
 .eve-card .eve-card-details {
     padding: 1rem;
+}
+
+/* LOAD MORE BUTTON  */
+#view-more-btn {
+    border: 1.5px solid var(--btn-bg-clr);
+    padding: .5rem .8rem;
+    border-radius: 5px;
+    color: var(--btn-bg-clr);
+    background-color: transparent;
+    transition: .5s;
+    font-weight: bolder;
+    cursor: pointer;
+}
+#view-more-btn:hover {
+    background-color: var(--btn-bg-clr);
+    color: var(--slider-bg-clr);
+}
+
+
+@media screen and (max-width: 900px) {
+    .icons-wrapper {
+        /* display: fl;
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); */
+        /* flex-wrap: wrap; */
+    }
 }

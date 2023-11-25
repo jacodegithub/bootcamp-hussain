@@ -6,6 +6,11 @@
 //     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 // }).addTo(map);
 
+
+
+
+
+// AUTOMATIC SLIDING CAROUSAL FUNCTION
 document.addEventListener('DOMContentLoaded', function() {
     // HERO CAROUSAL 
     let count = 1;
@@ -48,13 +53,13 @@ const apiUrl = `https://api.mockaroo.com/api/bebcf080?count=100&key=9ea192d0`
 const mockFetchEvents = async () => {
     try {
 
-        const response = await fetch(apiUrl);
+        // const response = await fetch(apiUrl);
 
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
+        // if (!response.ok) {
+        //     throw new Error('Network response was not ok');
+        // }
 
-        const events_data = await response.json();
+        // const events_data = await response.json();
         console.log(events_data);
 
         applyFilters(events_data);
@@ -195,17 +200,24 @@ function applyFilters(events_data) {
         console.log('filtered data', filteredData)
         setTimeout(() => {
             renderingEventCards(filteredData)
-        }, 1000)
+        }, 3000)
 
     })    
 }
 
 
 // RENDERING EVENT CARDS 
+let visibleDialogues = 8;
 function renderingEventCards(events) {
     const card_container = document.querySelector('.cards-container');
-    
-    events.forEach(eve_card => {
+
+    // Clear previous content
+    card_container.innerHTML = '';
+
+    for(let i=0;i < visibleDialogues && i<events.length; ++i) {
+
+        eve_card = events[i];
+
         let each_card = document.createElement('div')
         each_card.classList.add('eve-card')
 
@@ -249,8 +261,24 @@ function renderingEventCards(events) {
         each_card.appendChild(card_details)
 
         card_container.appendChild(each_card)
-    })
+    }
+
+
+    // let view_more_btn = document.querySelector('#view-more-btn')
+
+    // let visibleDialogues = 8;
+    // for(let i=0; i<visibleDialogues; ++i) {
+
+    // }
 }
+
+// RESTRICTING NUMBER OF CARDS IN CONTAINER
+// document.querySelector('#view-more-btn').addEventListener('click', function () {
+//     // Increase the number of cards to show by 8
+//     numCardsToShow += 8;
+//     // Render the updated set of cards
+//     renderEventCards(events);
+// });
 
 
 

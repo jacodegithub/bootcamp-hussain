@@ -124,7 +124,7 @@ nav .nav-links a:last-child:hover {
 .hero-section {
     background-color: var(--slider-bg-clr);
     height: 65vh;
-    margin-top: 3.8rem;
+    margin-top: 3.3%;
 }
 
 .slider {
@@ -505,9 +505,22 @@ nav .nav-links a:last-child:hover {
 
 
 @media screen and (max-width: 900px) {
+    .max-width {
+        width: 95%;
+    }
     .icons-wrapper {
         /* display: fl;
         grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); */
         /* flex-wrap: wrap; */
+    }
+    nav .nav-links {
+        width: 60%;
+        font-size: 70%;
+    }
+    nav .nav-links a:last-child{
+        padding: 1% 1%;
+        border-radius: 10px;
+        border: 1px solid var(--btn-bg-clr);
+        transition: .5s;
     }
 }

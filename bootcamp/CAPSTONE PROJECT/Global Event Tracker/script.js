@@ -59,6 +59,7 @@ const mockFetchEvents = async () => {
 
         applyFilters(events_data);
         populateFilterOption(events_data);
+        renderingEventCards(events_data);
 
         setTimeout(() => {
             events_data.map(data => {
@@ -145,33 +146,114 @@ ratingRange.addEventListener('input', function () {
 // FILTERING DATA AFTER GETTING INPUT
 function applyFilters(events_data) {
     const nameFilter = document.querySelector('.name-filter')
-    const dateFilter = document.querySelector('.date-filter')
+    const dateFilter = document.querySelector('#dateFilter')
     const locationFilter = document.querySelector('.location-filter')
     // const filter = document.querySelector('.category-filter')
     const catFilter = document.querySelector('.category-filter')
     const ticketPriceFilter = document.querySelector('.ticket-price-filter')
     const statusFilter = document.querySelector('.status-filter')
-    const rateFilter = document.querySelector('.rate-filter')
+    const rateFilter = document.querySelector('#ratingFilter')
+
+    // CAPTURING FILTER FORM
+    const filterForm = document.querySelector('.filter-form')
     
-    const filteredData = events_data.filter(data => {
-        console.log(data);
-        const eventCat = data.category.toLowerCase();
-        const eventDate = data.date;
-        const eventDetails = data.description;
-        const eventLocation = data.location.toLowerCase();
-        const eventOrganizer = data.name.toLowerCase();
-        const eventParticipantFeedback = data.participant_Feedback;
-        const eventTotalParticipants = data.participants;
-        const eventRating = Math.floor(data.rating);
-        const eventStatus = data.status;
-        const eventTicketPrice = data.ticket_price.replace(/[^0-9]/, '');
-        const eventAddress = data.venue;
+    filterForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        console.log(nameFilter.value, dateFilter.value, locationFilter.value, catFilter.value, ticketPriceFilter.value, statusFilter.value, rateFilter.value);
+        
+
+        const filteredData = events_data.filter(data => {
+        
+            const eventCat = data.category.toLowerCase();
+            const eventDate = data.date;
+            const eventDetails = data.description;
+            const eventLocation = data.location.toLowerCase();
+            const eventOrganizer = data.name.toLowerCase();
+            const eventParticipantFeedback = data.participant_Feedback;
+            const eventTotalParticipants = data.participants;
+            const eventRating = Math.floor(data.rating);
+            const eventStatus = data.status.toLowerCase();
+            const eventTicketPrice = data.ticket_price.replace(/[^0-9]/, '');
+            const eventAddress = data.venue;
+    
+            // console.log(eventStatus, statusFilter.value.toLowerCase())
+            // console.log('date', eventDate.split('/')[2]);
+
+            return(
+                (nameFilter.value == '' || eventOrganizer.includes(nameFilter.value.toLowerCase())) &&
+                (dateFilter.value == '' || eventDate.includes(dateFilter.value)) &&
+                (catFilter.value == '' || eventCat.includes(catFilter.value.toLowerCase())) &&
+                (locationFilter.value == '' || eventLocation.includes(locationFilter.value.toLowerCase())) &&
+                (statusFilter.value == '' || eventStatus == statusFilter.value.toLowerCase()) &&
+                (rateFilter.value == 0 || eventRating === Math.floor(rateFilter.value)) 
+            )
+    
+        })
+
+        // renderingEventCards(filteredData) 
+        console.log('filtered data', filteredData)
+        setTimeout(() => {
+            renderingEventCards(filteredData)
+        }, 1000)
+
+    })    
+}
 
 
-        console.log('date', eventDate);
+// RENDERING EVENT CARDS 
+function renderingEventCards(events) {
+    const card_container = document.querySelector('.cards-container');
+    
+    events.forEach(eve_card => {
+        let each_card = document.createElement('div')
+        each_card.classList.add('eve-card')
 
+        let card_img_container = document.createElement('div')
+        card_img_container.classList.add('card-img-container')
+
+        let card_img = document.createElement('img')
+        
+        let card_details = document.createElement('div')
+        card_details.classList.add('eve-card-details')
+
+        let card_title = document.createElement('h3')
+        card_title.classList.add('eve-card-title')
+
+        let card_date = document.createElement('h4')
+        card_date.classList.add('eve-card-date')
+
+        let card_location = document.createElement('h4')
+        card_location.classList.add('eve-card-loc')
+
+        let card_status = document.createElement('h5')
+        card_status.classList.add('eve-card-status')
+
+        // console.log(eve_card.name);
+
+        // adding image
+        card_img.src = eve_card.image
+        card_img_container.appendChild(card_img)
+
+        card_title.textContent = eve_card.name;
+        card_date.textContent = eve_card.date;
+        card_location.textContent = eve_card.location;
+        card_status.textContent = eve_card.status;
+
+        card_details.appendChild(card_title)
+        card_details.appendChild(card_date)
+        card_details.appendChild(card_location)
+        card_details.appendChild(card_status)
+
+        each_card.appendChild(card_img_container)
+        each_card.appendChild(card_details)
+
+        card_container.appendChild(each_card)
     })
 }
+
+
+
 /*
 
 category

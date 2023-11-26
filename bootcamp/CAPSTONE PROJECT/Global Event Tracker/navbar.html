@@ -60,6 +60,51 @@
             background-color: var(--svg-icons-hover-bg);
             color: white;
         }
+
+
+        @media screen and (max-width: 1200px) {
+            nav .nav-links {
+                width: 60%;
+                font-size: 80%;
+            }
+        }
+
+        @media screen and (max-width: 900px) {
+            .max-width {
+                width: 95%;
+            }
+            nav .nav-links {
+                width: 60%;
+                font-size: 70%;
+            }
+            nav .nav-links a:last-child{
+                padding: 1% 1%;
+                border-radius: 10px;
+                border: 1px solid var(--btn-bg-clr);
+                transition: .5s;
+            }
+        }
+
+        @media screen and (max-width: 500px) {
+            .max-width {
+                /* width: 95%; */
+            }
+            .icons-wrapper {
+                /* display: fl;
+                grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); */
+                /* flex-wrap: wrap; */
+            }
+            nav .nav-links {
+                width: 60%;
+                font-size: 70%;
+            }
+            nav .nav-links a:last-child{
+                padding: 1% 1%;
+                border-radius: 10px;
+                border: 1px solid var(--btn-bg-clr);
+                transition: .5s;
+            }
+        }
     </style>
 </head>
 <body>

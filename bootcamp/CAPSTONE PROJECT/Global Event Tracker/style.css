@@ -102,12 +102,64 @@ nav .nav-links a:last-child:hover {
 .slide {
     width: 20%;
     transition: 2s;
+    position: relative;
 }
 
 .slide img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    filter: contrast(80%) brightness(80%);
+}
+#disco-title {
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-family: 'Kalam', cursive;
+    font-family: 'Mooli', sans-serif;
+    font-family: 'Nunito', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+    font-style: italic;
+}
+#disco-title::before {
+    content: '\201C'; 
+    font-size: 3rem;
+}
+
+#disco-title::after {
+    content: '\201D'; 
+    font-size: 3rem;
+}
+#party-title {
+    font-family: 'Mooli', sans-serif;
+    font-family: 'Nunito', sans-serif;
+}
+#birthday-title {
+    font-family: 'Poppins', sans-serif;
+}
+.img-title {
+    position: absolute;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+    color: white; /* Adjust text color */
+    font-size: 3rem; /* Adjust font size */
+    text-align: center;
+    width: 80%; /* Adjust the width if needed */
+    opacity: 1;
+    transition: opacity 0.5s, transform 0.5s;
+    z-index: 50;
+    width: 50%;
+    text-align: left;
+}
+#wedding-title {
+    font-family: 'Ubuntu', sans-serif;
+    font-family: 'Mooli', sans-serif;
+    font-family: 'Edu TAS Beginner', cursive;
+    font-family: 'Kalam', cursive;
+    font-family: 'Nunito', sans-serif;
+    font-style:oblique;
+    font-size: 2.5rem;
 }
 
 .navigation-manual {
@@ -380,10 +432,10 @@ nav .nav-links a:last-child:hover {
     transform: translate(-50%, -50%);
     width: 100%;
     height: 100%;
-    display: none;
+    cursor: pointer;
 
     animation-name: price-filter;
-    animation-duration: .4s;
+    animation-duration: .6s;
 }
 @keyframes price-filter {
     from {
@@ -402,10 +454,13 @@ nav .nav-links a:last-child:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    display: none;
+    cursor: pointer;
 
     animation-name: rate-filter;
-    animation-duration: .4s;
+    animation-duration: .6s;
+}
+.hidden {
+    display: none;
 }
 @keyframes rate-filter {
     from {
@@ -433,7 +488,7 @@ nav .nav-links a:last-child:hover {
 }
 
 .eve-card {
-    background-color: #ddd;
+    background-color: #eee;
     height: 18rem;
     display: flex;
     flex-direction: column;
@@ -451,6 +506,7 @@ nav .nav-links a:last-child:hover {
 }
 .card-img-container {
     height: 100%;
+    width: 100%;
     position: relative;
     overflow: hidden;
 }
@@ -460,8 +516,21 @@ nav .nav-links a:last-child:hover {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: auto;
+    object-fit: cover/ contain;
+}
+.eve-card-details .eve-card-title {
+    font-size: 1.3rem;
+    color: var(--svg-icons-clr);
+}
+.eve-card-details .eve-card-date {
+    font-size: small;
+    color: #777;
+}
+.eve-card-details .eve-card-status {
+    font-size: .8rem;
+    color: #555;
+
 }
 
 /* LOAD MORE BUTTON  */
@@ -488,9 +557,117 @@ nav .nav-links a:last-child:hover {
 }
 
 
+@media screen and (max-width: 1200px) {
+
+    /* FILTER SLIDER  */
+    #select-fltr-optn #priceFilter {
+        bottom: -150%;    
+    }
+    @keyframes price-filter {
+        from {
+            top: -50%;
+            opacity: 0;
+        }
+        to {
+            bottom: -150%;
+            opacity: 1;
+        }
+    }
+    
+    #select-fltr-optn #ratingFilter {
+        bottom: -150%;
+    }
+    @keyframes rate-filter {
+        from {
+            top: -50%;
+            opacity: 0;
+        }
+        to {
+            bottom: -150%;
+            opacity: 1;
+        }
+    }
+}
+
 @media screen and (max-width: 900px) {
     .max-width {
         width: 95%;
+    }
+    .icons-wrapper {
+        /* display: fl;
+        grid-template-columns: repeat(auto-fill, minmax(8rem, 1fr)); */
+        /* flex-wrap: wrap; */
+    }
+
+    /* FILTER FORM  */
+    .filter-form {
+        height: 25rem;
+    }
+
+    /* FILTER SLIDER  */
+    #select-fltr-optn #priceFilter {
+        bottom: -150%;    
+    }
+    @keyframes price-filter {
+        from {
+            top: -50%;
+            opacity: 0;
+        }
+        to {
+            bottom: -150%;
+            opacity: 1;
+        }
+    }
+    
+    #select-fltr-optn #ratingFilter {
+        bottom: -150%;
+    }
+    @keyframes rate-filter {
+        from {
+            top: -50%;
+            opacity: 0;
+        }
+        to {
+            bottom: -150%;
+            opacity: 1;
+        }
+    }
+}
+
+@media screen and (max-width: 700px) {
+    /* FILTER SLIDER  */
+    #select-fltr-optn #priceFilter {
+        bottom: -130%;    
+    }
+    @keyframes price-filter {
+        from {
+            top: -50%;
+            opacity: 0;
+        }
+        to {
+            bottom: -130%;
+            opacity: 1;
+        }
+    }
+    
+    #select-fltr-optn #ratingFilter {
+        bottom: -100%;
+    }
+    @keyframes rate-filter {
+        from {
+            top: -50%;
+            opacity: 0;
+        }
+        to {
+            bottom: -100%;
+            opacity: 1;
+        }
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .max-width {
+        /* width: 95%; */
     }
     .icons-wrapper {
         /* display: fl;
@@ -506,5 +683,38 @@ nav .nav-links a:last-child:hover {
         border-radius: 10px;
         border: 1px solid var(--btn-bg-clr);
         transition: .5s;
+    }
+
+    .filter-form {
+        height: 30rem;
+    }
+
+    /* FILTER SLIDER  */
+    #select-fltr-optn #priceFilter {
+        bottom: -12  0%;    
+    }
+    @keyframes price-filter {
+        from {
+            top: -50%;
+            opacity: 0;
+        }
+        to {
+            bottom: -120%;
+            opacity: 1;
+        }
+    }
+    
+    #select-fltr-optn #ratingFilter {
+        bottom: -50%;
+    }
+    @keyframes rate-filter {
+        from {
+            top: -50%;
+            opacity: 0;
+        }
+        to {
+            bottom: -50%;
+            opacity: 1;
+        }
     }
 }

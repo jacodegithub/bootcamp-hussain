@@ -136,12 +136,39 @@ options.forEach(option => {
 });
 }
 
-const ratingRange = document.getElementById('ratingFilter');
+const ratingRange = document.querySelector('#ratingFilter');
 const sliderValue = document.getElementById('sliderValue');
+const rating = document.querySelector('.rate-filter')
+rating.addEventListener('click', () => {
+    const isHidden = ratingRange.classList.contains('hidden');
+    // console.log(isHidden);
+    if(!isHidden){
+        ratingRange.classList.add('hidden');
+    }else {
+        ratingRange.classList.remove('hidden')
+    }
+})
 
-// Update the displayed value when the slider changes
+const ticketPriceClick = document.querySelector('.ticket-price-filter')
+ticketPriceClick.addEventListener('click', () => {
+    const isHidden = document.querySelector('#priceFilter').classList.contains('hidden')
+    if(isHidden) {
+        document.querySelector('#priceFilter').classList.remove('hidden')
+    }else {
+        document.querySelector('#priceFilter').classList.add('hidden')
+    }
+})
+
+// Update the displayed value when the rate slider changes
 ratingRange.addEventListener('input', function () {
     sliderValue.textContent = ratingRange.value;
+});
+
+// Update the displayed value when the price slider changes
+const priceFilter = document.querySelector('#priceFilter')
+const priceSliderValue = document.querySelector('#priceSliderValue')
+priceFilter.addEventListener('input', function () {
+    priceSliderValue.textContent = priceFilter.value;
 });
 
 
@@ -254,7 +281,7 @@ function renderingEventCards(events) {
         // console.log(eve_card.name);
 
         // adding image
-        card_img.src = eve_card.image;
+        card_img.src = 'https://picsum.photos/200/300';
         card_img_container.appendChild(card_img);
 
         card_title.textContent = eve_card.name;
@@ -263,8 +290,8 @@ function renderingEventCards(events) {
         card_status.textContent = eve_card.status;
 
         card_details.appendChild(card_title);
-        card_details.appendChild(card_date);
         card_details.appendChild(card_location);
+        card_details.appendChild(card_date);
         card_details.appendChild(card_status);
 
         each_card.appendChild(card_img_container);
@@ -281,12 +308,26 @@ function renderingEventCards(events) {
     }
 
     lastIndexRendered = Math.min(visibleDialogues, events.length);
+    
     document.querySelector('#view-more-btn').addEventListener('click', function () {
         // Increase the number of cards to show by 8
         visibleDialogues += 8;
         // Render the updated set of cards
         renderingEventCards(events);
+        // Update cards-section height
+        updateCardSectionHeight();
     });
+}
+
+const cardsSection = document.querySelector('.cards-section')
+function updateCardSectionHeight() {
+    const cardHeight = document.querySelector('.eve-card').offsetHeight; // Adjust 20 as needed for margins/padding
+    console.log(document.querySelector('.eve-card'));
+    console.log('card height', cardHeight);
+    const newHeight =  (cardHeight / 3 * visibleDialogues);
+    console.log('new height',newHeight);
+    // Set the new height for the card section
+    cardsSection.style.height = `${newHeight}px`;
 }
 
 

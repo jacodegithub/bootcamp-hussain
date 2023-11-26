@@ -14,8 +14,6 @@
         footer {
             background-color: #1e0a3d;
             height: 20rem;
-            display: flex;
-            flex-direction: column-reverse;
             padding: 1rem;
             color: #e2deeb;
         }
@@ -63,6 +61,23 @@
         p {
             margin-top: 1rem;
             cursor: pointer;
+        }
+
+        @media screen and (max-width: 600px) {
+            .footer-top {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+                margin-bottom: 2%;
+            }
+            footer {
+                height: 30rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .footer-links a {
+                font-size: xx-small;
+            }
         }
     </style>
 </head>

@@ -8,6 +8,11 @@
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
     <link rel="stylesheet" href="style.css">
+
+    <!-- GOOGLE FONTS  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500&family=Edu+TAS+Beginner:wght@500&family=Kalam:wght@400;700&family=Mooli&family=Nunito:wght@200;300;400;500;600&family=Poppins:wght@300;500;600;700&family=Ubuntu:wght@300;400;500&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav id="navbar"></nav>
@@ -22,15 +27,19 @@
 
                 <div class="slide first">
                     <img src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="disco">
+                    <h1 class="img-title" id="disco-title">Dance Fever: Disco Delight Unleashed</h1>
                 </div>
                 <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="party">
+                    <h1 class="img-title" id="party-title">Let's Celebrate: Because Every Occasion is Special</h1>
                 </div>
                 <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?q=80&w=1740&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="birthday">
+                    <h1 class="img-title" id="birthday-title">Another Year, Another Adventure: Let’s Celebrate!</h1>
                 </div>
                 <div class="slide">
-                    <img src="https://images.unsplash.com/photo-1503314885798-a70f8f9028d3?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="">
+                    <img src="https://images.unsplash.com/photo-1503314885798-a70f8f9028d3?q=80&w=1738&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="wedding">
+                    <h1 class="img-title" id="wedding-title">To Have and To Hold: Wedding Wonders Await</h1>
                 </div>
 
                 <div class="navigation-auto">
@@ -129,15 +138,19 @@
                     </select> -->
                     <div id="select-fltr-optn" class="ticket-price-filter">
                         <label for="priceFilter">Price</label>
-                        <input type="range" id="priceFilter" name="priceFilter" min="0" max="50000" step="500" value="0">
+                        <input class="hidden" type="range" id="priceFilter" name="priceFilter" min="0" max="50000" step="500" value="0">
+
+                        <!-- Display the selected value dynamically -->
+                        <div id="priceSliderValue">1</div>
+
                     </div>
     
                     <select id="select-fltr-optn" class="status-filter">
                         <option value="" disabled selected>Status</option>
                     </select>
                     <div id="select-fltr-optn" class="rate-filter">
-                        <label for="ratingFilter">Rating</label>
-                        <input type="range" id="ratingFilter" name="priceFilter" min="0" max="5" step="1" value="0">
+                        <label id="rating" for="ratingFilter">Rating</label>
+                        <input class="hidden" type="range" id="ratingFilter" name="priceFilter" min="1" max="5" step="1" value="0">
     
                         <!-- Display the selected value dynamically -->
                         <div id="sliderValue">1</div>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+        footer {
+            background-color: #1e0a3d;
+            height: 20rem;
+            display: flex;
+            flex-direction: column-reverse;
+            padding: 1rem;
+            color: #e2deeb;
+        }
+        footer div {
+            color: #e2deeb;
+        }
+        .footer-container {
+            display: flex;
+            flex-direction: column;
+            /* justify-content: flex-end; */
+        }
+        .footer-top {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(25%, 1fr));
+            margin-bottom: 2%;
+        }
+        .footer-bxs {
+            /* margin-left: 30%; */
+        }
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.15rem;
+            margin-top: 3%;
+        }
+        .footer-links a {
+            text-decoration: none;
+            color: #e2deeb;
+            font-size: x-small;
+        }
+        .footer-links a:hover {
+            text-decoration:underline;
+        }
+        .footer-bottom {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            font-size: x-small;
+        }
+        .divider {
+            width: 100%;
+            height: 1px;
+            background-color: #7f6980;
+        }
+        p {
+            margin-top: 1rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body id="footer">
+    <footer>
+        <div class="footer-container">
+            <div class="footer-top">
+            <div class="footer-bxs">
+                <h4>Use Evetrack</h4>
+                <div class="footer-links">
+                    <a href="#">Create Events</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">Event Marketing Platform</a>
+                    <a href="#">Event Ticket App</a>
+                    <a href="#">Event Registeration</a>
+                    <a href="#">Content Standards</a>
+                    <a href="#">FAQs</a>
+
+                </div>
+            </div>
+            <div class="footer-bxs">
+                <h4>Plan Events</h4>
+                <div class="footer-links">
+                    <a href="#">Sell Tickets Online</a>
+                    <a href="#">Event Planning</a>
+                    <a href="#">Sell Concert Tickets Online</a>
+                    <a href="#">Event Payment System</a>
+                    <a href="#">Virtual Event Platform</a>
+                    <a href="#">Post Your Event Online</a>
+                    <a href="#">Event Payment System</a>
+                </div>
+            </div>
+            <div class="footer-bxs">
+                <h4>Find Events</h4>
+                <div class="footer-links">
+                    <a href="#">New Orlean Food & Drink Event</a>
+                    <a href="#">Tulum Music Festival</a>
+                    <a href="#">Denver Hobby Events</a>
+                    <a href="#">New York Events</a>
+                    <a href="#">Chicago Events</a>
+                    <a href="#">Los Angeles Events</a>
+                    <a href="#">Mumbai Events</a>
+                    <a href="#">Bangalore Events</a>
+                    <a href="#">Washington Events</a>
+                </div>
+            </div>
+            <div class="footer-bxs">
+                <h4>Connect With Us</h4>
+                <div class="footer-links">
+                    <a href="#">Contact Support</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">Facebook</a>
+                    <a href="#">Linkedin</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">TikTok</a>
+                </div>
+            </div>
+            </div>
+            <div class="divider"></div>
+            <div class="footer-bottom">
+                <p>© 2023 Evetrack | Terms & Conditions | Privacy Policy</p>
+                <p>United States</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

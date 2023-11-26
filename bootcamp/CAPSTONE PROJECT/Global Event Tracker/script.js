@@ -1,12 +1,21 @@
 import { events_data } from "./eventData.js";
 
-const event_data = events_data.slice(0, 10);
+const event_data = events_data.slice(0, 50);
 console.log(event_data);
 
 // DYNAMICALLY ADDING NAVBAR
 const navbar = document.querySelector('#navbar')
 fetch("./navbar.html").then(res => res.text()).then(data => {
     navbar.innerHTML = data;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, "text/html");
+    eval(doc.querySelector("script").textContent);
+}
+)
+// DYNAMICALLY ADDING FOOTER
+const footer = document.querySelector('#footer')
+fetch("./footer.html").then(res => res.text()).then(data => {
+    footer.innerHTML = data;
     const parser = new DOMParser();
     const doc = parser.parseFromString(data, "text/html");
     eval(doc.querySelector("script").textContent);
@@ -75,6 +84,7 @@ heroIcon.forEach(icon => {
 let openFilterButton = document.querySelector('#filter-btn');
 let formContainer = document.querySelector('.form-container')
 let closeForm = document.querySelector('.form-close')
+let formFltrBtn = document.querySelector('#form-fltr-btn')
 
 openFilterButton.addEventListener('click', () => {
     formContainer.style.display = 'block';
@@ -86,6 +96,9 @@ window.addEventListener('click', (e) => {
     if(e.target === formContainer) {
         formContainer.style.display = 'none';
     }
+})
+formFltrBtn.addEventListener('click', () => {
+    formContainer.style.display = 'none';
 })
 
 // FUNCTION TO POPULATE FILTER OPTION
@@ -134,7 +147,7 @@ ratingRange.addEventListener('input', function () {
 
 // FILTERING DATA AFTER GETTING INPUT
 function applyFilters(events_data) {
-    console.log(events_data);
+    // console.log('in apply filters ',events_data);
     const nameFilter = document.querySelector('.name-filter')
     const dateFilter = document.querySelector('#dateFilter')
     const locationFilter = document.querySelector('.location-filter')

@@ -26,11 +26,15 @@
   <style>
     body {
         height: 100vh;
+        background-color:rgb(255, 250, 242);
+        font-family: 'Segoe UI', sans-serif;
+    }
+    .chart-container {
         display: flex;
         align-items: center;
         flex-direction: column;
         justify-content: flex-start;
-        background-color:rgb(255, 250, 242);
+        margin-top: 5%;
     }
     #eventTypePieChart {
         width: 60%;
@@ -40,12 +44,18 @@
 </head>
 <body>
 
-    <!-- Date picker input -->
-    <input type="text" id="datePicker" placeholder="Select time period">
+    <nav id="navbar"></nav>
 
-    <!-- Canvas to render the pie chart -->
-    <canvas id="eventTypePieChart"></canvas>
+    <div class="chart-container">
+        <!-- Date picker input -->
+        <input type="text" id="datePicker" placeholder="Select time period">
+    
+        <!-- Canvas to render the pie chart -->
+        <canvas id="eventTypePieChart"></canvas>
 
+    </div>
+
+    <footer id="footer"></footer>
     <script type="module" src="chart.js"></script>
 
 </body>

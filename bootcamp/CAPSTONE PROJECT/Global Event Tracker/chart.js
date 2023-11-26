@@ -11,7 +11,14 @@ fetch("./navbar.html").then(res => res.text()).then(data => {
 })
 
 
-
+// DYNAMICALLY ADDING FOOTER
+const footer = document.querySelector('#footer')
+fetch("./footer.html").then(res => res.text()).then(data => {
+    footer.innerHTML = data;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, "text/html");
+    eval(doc.querySelector("script").textContent);
+})
 
 // Set up date picker
 flatpickr("#datePicker", {

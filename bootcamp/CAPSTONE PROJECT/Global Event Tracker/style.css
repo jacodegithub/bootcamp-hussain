@@ -599,6 +599,13 @@ nav .nav-links a:last-child:hover {
         /* flex-wrap: wrap; */
     }
 
+    .cards-section {
+        height: 200vh;
+    }
+
+    .cards-container {
+        grid-template-columns: repeat(auto-fit, minmax(30%, 1fr));
+    }
     /* FILTER FORM  */
     .filter-form {
         height: 25rem;
@@ -635,6 +642,11 @@ nav .nav-links a:last-child:hover {
 }
 
 @media screen and (max-width: 700px) {
+
+    .cards-section {
+        height: 250vh;
+    }
+
     /* FILTER SLIDER  */
     #select-fltr-optn #priceFilter {
         bottom: -130%;    

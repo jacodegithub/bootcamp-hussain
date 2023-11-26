@@ -300,8 +300,10 @@ function renderingEventCards(events) {
             // Add an event listener to the card
         each_card.addEventListener('click', function () {
             // Redirect to the event details page, passing the event ID as a query parameter
-            console.log(eve_card.id);
-            window.location.href = 'event-details.html?id=' + eve_card.id;
+            // console.log(card_img.src);
+            const imageUrl = card_img.src
+            console.log('imageUrl', imageUrl);
+            window.location.href = 'event-details.html?id=' + eve_card.id + '&imageUrl=' + imageUrl;
         });
 
         card_container.appendChild(each_card);

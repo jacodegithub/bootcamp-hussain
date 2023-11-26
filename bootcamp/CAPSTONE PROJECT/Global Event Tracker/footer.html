@@ -21,8 +21,10 @@
             color: #e2deeb;
         }
         .footer-container {
-            display: flex;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr;
             flex-direction: column;
+            margin-top: 1.5rem;
             /* justify-content: flex-end; */
         }
         .footer-top {
@@ -67,13 +69,16 @@
             .footer-top {
                 display: grid;
                 grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
-                margin-bottom: 2%;
+                margin-top: 5%;
+            }
+            .footer-bxs:nth-child(3) {
+                margin-top: 3rem;
+            }
+            .footer-bxs:nth-child(4) {
+                margin-top: 3rem;
             }
             footer {
-                height: 30rem;
-                display: flex;
-                align-items: center;
-                justify-content: center;
+                height: 33rem;
             }
             .footer-links a {
                 font-size: xx-small;
@@ -81,7 +86,7 @@
         }
     </style>
 </head>
-<body id="footer">
+<body>
     <footer>
         <div class="footer-container">
             <div class="footer-top">

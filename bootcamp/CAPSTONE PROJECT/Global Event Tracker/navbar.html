@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navbar</title>
+    <style>
+        :root {
+            --slider-bg-clr: #eee;
+            --btn-bg-clr: #f43340;
+            --svg-icons-clr: #333;
+            --svg-icons-hover-bg: #ec2432;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+        }
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            position: fixed;
+            height: 8%;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+        }
+
+        nav .logo {
+            padding-left: 1rem;
+            color: #f44336;
+            text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            font-weight: bolder;
+        }
+
+        nav .nav-links {
+            width: 40%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-right: 1rem;
+        }
+
+        nav .nav-links a {
+            text-decoration: none;
+            color: #233;
+        }
+
+        nav .nav-links a:last-child{
+            /* background-color: var(--btn-bg-clr); */
+            padding: .3rem .8rem;
+            border-radius: 10px;
+            border: 1px solid var(--btn-bg-clr);
+            transition: .5s;
+            /* color: #eff; */
+        }
+        nav .nav-links a:last-child:hover {
+            background-color: var(--svg-icons-hover-bg);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <h1 class="logo">Evetrack</h1>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="chart.html">Eve Distributions</a>
+            <a href="map.html">Map</a>
+            <a href="#contact">Contact Us</a>
+            <a href="#sign-up">Sign Up</a>
+        </div>
+    </nav>
+</body>
+</html>

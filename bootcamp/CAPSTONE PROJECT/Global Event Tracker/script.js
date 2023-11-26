@@ -1,15 +1,16 @@
-import { event_data } from "./eventData.js";
+import { events_data } from "./eventData.js";
 
-// USING LEAFLET MAP 
-// var map = L.map('map').setView([51.505, -0.09], 13);
+const event_data = events_data.slice(0, 10);
+console.log(event_data);
 
-// L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-//     maxZoom: 19,
-//     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-// }).addTo(map);
-
-
-
+// DYNAMICALLY ADDING NAVBAR
+const navbar = document.querySelector('#navbar')
+fetch("./navbar.html").then(res => res.text()).then(data => {
+    navbar.innerHTML = data;
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(data, "text/html");
+    eval(doc.querySelector("script").textContent);
+})
 
 // AUTOMATIC SLIDING CAROUSAL FUNCTION
 document.addEventListener('DOMContentLoaded', function() {
@@ -27,25 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
 })
 
     // ADDING MARKER FUNCTION
-function addMarkerByCityName(cityName, date) {
-    const apiKey = 'e22906d0cf8c4a7d82fcd1c41a847725';
-    const geocodingUrl = `https://api.opencagedata.com/geocode/v1/json?q=${cityName}&key=${apiKey}`;
 
-    fetch(geocodingUrl)
-    .then(response => response.json())
-    .then(data => {
-        if (data.results && data.results.length > 0) {
-        const location = data.results[0].geometry;
-        const marker = L.marker([location.lat, location.lng]).addTo(map);
-        marker.bindPopup(`City: ${cityName}, Date: ${date}`).openPopup();
-        } else {
-        console.error('Geocoding failed for the city:', cityName);
-        }
-    })
-    .catch(error => {
-    console.error('Error fetching geocoding data:', error.message);
-    });
-}
 
 // DATA API URL
 const apiUrl = `https://api.mockaroo.com/api/bebcf080?count=100&key=9ea192d0`
@@ -110,7 +93,7 @@ function populateFilterOption(events) {
     const uniqueNames = [...new Set(events.map(event => event.name))];
     populateSelectOptions('name-filter', uniqueNames)
     
-    const uniqueDates = [...new Set(events.map(event => event.date))];
+    // const uniqueDates = [...new Set(events.map(event => event.date))];
     // populateSelectOptions('date-filter', uniqueDates)
 
     const uniqueLocations = [...new Set(events.map(event => event.location))];
@@ -119,13 +102,13 @@ function populateFilterOption(events) {
     const uniqueCategories = [...new Set(events.map(event => event.category))];
     populateSelectOptions('category-filter', uniqueCategories)
 
-    const uniquePrices = [...new Set(events.map(event => event.ticket_price))];
+    // const uniquePrices = [...new Set(events.map(event => event.ticket_price))];
     // populateSelectOptions('ticket-price-filter', uniquePrices)
 
     const uniqueStatus = [...new Set(events.map(event => event.status))];
     populateSelectOptions('status-filter', uniqueStatus)
 
-    const uniqueRating = [...new Set(events.map(event => event.rating))];
+    // const uniqueRating = [...new Set(events.map(event => event.rating))];
     // populateSelectOptions('rate-filter', uniqueRating)
 
 }
@@ -155,7 +138,6 @@ function applyFilters(events_data) {
     const nameFilter = document.querySelector('.name-filter')
     const dateFilter = document.querySelector('#dateFilter')
     const locationFilter = document.querySelector('.location-filter')
-    // const filter = document.querySelector('.category-filter')
     const catFilter = document.querySelector('.category-filter')
     const ticketPriceFilter = document.querySelector('.ticket-price-filter')
     const statusFilter = document.querySelector('.status-filter')
@@ -163,11 +145,12 @@ function applyFilters(events_data) {
 
     // CAPTURING FILTER FORM
     const filterForm = document.querySelector('.filter-form')
+    const card_container = document.querySelector('.cards-container');
     
     filterForm.addEventListener('submit', function(event) {
         event.preventDefault();
-        
-        console.log(nameFilter.value, dateFilter.value, locationFilter.value, catFilter.value, ticketPriceFilter.value, statusFilter.value, rateFilter.value);
+        // card_container.innerHTML = ''
+        // console.log(nameFilter.value, dateFilter.value, locationFilter.value, catFilter.value, ticketPriceFilter.value, statusFilter.value, rateFilter.value);
         
 
         const filteredData = events_data.filter(data => {
@@ -209,78 +192,121 @@ function applyFilters(events_data) {
 
 // RENDERING EVENT CARDS 
 let visibleDialogues = 8;
+let lastIndexRendered = 0;
+
 function renderingEventCards(events) {
     const card_container = document.querySelector('.cards-container');
-    
-    console.log('render ', events.length);
+
     // Clear previous content
+    if (lastIndexRendered === 0) {
+    }
     card_container.innerHTML = '';
-    
-    for(let i=0;i < 8 && i<events.length; ++i) {
-        
+    console.log('render ', events.length);
+
+    for (let i = 0; i < visibleDialogues && i < events.length; ++i) {
+        console.log(lastIndexRendered, visibleDialogues);
         let eve_card = events[i];
+        console.log(eve_card);
+        let each_card = document.createElement('div');
+        each_card.classList.add('eve-card');
 
-        let each_card = document.createElement('div')
-        each_card.classList.add('eve-card')
+        let card_img_container = document.createElement('div');
+        card_img_container.classList.add('card-img-container');
 
-        let card_img_container = document.createElement('div')
-        card_img_container.classList.add('card-img-container')
+        let card_img = document.createElement('img');
+        // const url = fetchImageByCategory(eve_card.category)
+        // console.log('image', url)
+        // if (url) {
+        //     card_img.src = url
+        //     card_img.alt = topic.category.toLowerCase();
+        //     console.log(card_img.src);
+        //     card_img_container.appendChild(card_img);
+        // }
 
-        let card_img = document.createElement('img')
-        
-        let card_details = document.createElement('div')
-        card_details.classList.add('eve-card-details')
+        let card_details = document.createElement('div');
+        card_details.classList.add('eve-card-details');
 
-        let card_title = document.createElement('h3')
-        card_title.classList.add('eve-card-title')
+        let card_title = document.createElement('h3');
+        card_title.classList.add('eve-card-title');
 
-        let card_date = document.createElement('h4')
-        card_date.classList.add('eve-card-date')
+        let card_date = document.createElement('h4');
+        card_date.classList.add('eve-card-date');
 
-        let card_location = document.createElement('h4')
-        card_location.classList.add('eve-card-loc')
+        let card_location = document.createElement('h4');
+        card_location.classList.add('eve-card-loc');
 
-        let card_status = document.createElement('h5')
-        card_status.classList.add('eve-card-status')
+        let card_status = document.createElement('h5');
+        card_status.classList.add('eve-card-status');
 
         // console.log(eve_card.name);
 
         // adding image
-        card_img.src = eve_card.image
-        card_img_container.appendChild(card_img)
+        card_img.src = eve_card.image;
+        card_img_container.appendChild(card_img);
 
         card_title.textContent = eve_card.name;
         card_date.textContent = eve_card.date;
         card_location.textContent = eve_card.location;
         card_status.textContent = eve_card.status;
 
-        card_details.appendChild(card_title)
-        card_details.appendChild(card_date)
-        card_details.appendChild(card_location)
-        card_details.appendChild(card_status)
+        card_details.appendChild(card_title);
+        card_details.appendChild(card_date);
+        card_details.appendChild(card_location);
+        card_details.appendChild(card_status);
 
-        each_card.appendChild(card_img_container)
-        each_card.appendChild(card_details)
+        each_card.appendChild(card_img_container);
+        each_card.appendChild(card_details);
 
-        card_container.appendChild(each_card)
+            // Add an event listener to the card
+        each_card.addEventListener('click', function () {
+            // Redirect to the event details page, passing the event ID as a query parameter
+            console.log(eve_card.id);
+            window.location.href = 'event-details.html?id=' + eve_card.id;
+        });
+
+        card_container.appendChild(each_card);
     }
 
-
-    // let view_more_btn = document.querySelector('#view-more-btn')
-
-    // let visibleDialogues = 8;
-    // for(let i=0; i<visibleDialogues; ++i) {
-
-    // }
+    lastIndexRendered = Math.min(visibleDialogues, events.length);
+    document.querySelector('#view-more-btn').addEventListener('click', function () {
+        // Increase the number of cards to show by 8
+        visibleDialogues += 8;
+        // Render the updated set of cards
+        renderingEventCards(events);
+    });
 }
 
-// RESTRICTING NUMBER OF CARDS IN CONTAINER
-// document.querySelector('#view-more-btn').addEventListener('click', function () {
-//     // Increase the number of cards to show by 8
-//     numCardsToShow += 8;
-//     // Render the updated set of cards
-//     renderEventCards(events);
-// });
+
+
+// CALLING FUNCTIONS
+mockFetchEvents();
+
+
+// UNSPLASH API
+async function fetchImageByCategory(category) {
+
+    const accessKey = '6WQmaWsOC3AYk3BOPoVzI88fSUFbXhfzEu2J-gaj7DU';
+    // const topics = ['nature', 'architecture', 'technology']; // Add more topics as needed
+    const container = document.getElementById('image-container');
+    event_data.forEach((topic) => {
+        const apiUrl = `https://api.unsplash.com/photos/random?query=${topic.category.toLowerCase()}&client_id=${accessKey}&count=1`;
+      
+        fetch(apiUrl)
+          .then(response => response.json())
+          .then(data => {
+            if (data && data.length > 0) {
+              const image = document.createElement('img');
+              image.src = data[0].urls.regular;
+              image.alt = topic;
+              console.log(image.src);
+              container.appendChild(image);
+            }
+          })
+          .catch(error => {
+            console.error(`Error fetching images for ${topic}:`, error.message);
+          });
+      });
+}
 
 
 
@@ -339,8 +365,7 @@ venue
 "Apt 231"
 */
 
-// CALLING FUNCTIONS
-mockFetchEvents();
+
 
 //   const zoom = 3;
 //   const x = 5;
@@ -383,46 +408,7 @@ mockFetchEvents();
 
 
 
-// FOR GENERATING MAPS 
 
-  // Example: Adding a marker for a city (e.g., Paris)
-
-// const searchBox = document.querySelector('.search-box')
-
-// searchBox.addEventListener('submit', (event) => {
-//     event.preventDefault()
-//     const searchVal = document.querySelector('.search-box input');
-
-//     if (searchVal.value == '') {
-//         searchVal.focus()
-//         return;
-//     }
-
-//     const APIKEY = `3b7a61b69fcba80c3efdeb434adb36d6`;
-//     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${searchVal.value}&appid=${APIKEY}`
-
-//     fetch(URL).then(res => res.json()).then(json => {
-//         console.log(json)
-//         if (json) {
-//             let cur = json.current;
-//             let loc = json.coord;
-//             let latLon = [loc.lat, loc.lon];
-
-//             L.circle(latLon, {
-//                 color: 'red',
-//                 fillColor: '#f03',
-//                 fillOpacity: 0.5,
-//                 radius: 10
-//             }).addTo(map);
-
-//             L.marker(latLon).addTo(map).bindPopup(`Location: ${json.name}, ${json.sys.country}<br>temperature: ${json.main.temp}&#8451;<br>
-//             Humidity: ${json.main.humidity}%<br>
-//             Weather: ${json.weather[0].description}`).openPopup();
-
-//             map.panTo(latLon)
-//         }
-//     })
-// })
 
 
 // const apiKey = 'XHqhouklggXQZ2NCadGIAVke0ARZPPns';

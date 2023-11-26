@@ -10,23 +10,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- <div class="container">
-        <form class="search-box">
-            <input type="text" placeholder="Search City" id="search-input">
-            <button>&#128269</button>
-        </form>
-        <div id="map"></div>
-    </div> -->
-    <nav>
-        <h1 class="logo">Evetrack</h1>
-        <div class="nav-links">
-            <a href="#home"><b>Home</b></a>
-            <a href="#find-events">Find Events</a>
-            <a href="#about">About Us</a>
-            <a href="#contact">Contact Us</a>
-            <a href="#sign-up">Sign Up</a>
-        </div>
-    </nav>
+    <nav id="navbar"></nav>
 
     <section class="hero-section" id="home">
         <div class="slider">
@@ -174,7 +158,7 @@
             </div>
     
             <!-- cards  -->
-            <h2>Popular in City</h2>
+            <h2 class="card-container-title">Popular in <span id="container-city">City</span></h2>
             <div class="cards-container-wrapper">
                 <div class="cards-container">
     
@@ -185,9 +169,7 @@
 
     </section>
 
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
-    crossorigin=""></script>
+    <section class="image-container"></section>
 
     <script type="module" src="script.js"></script>
     <script src="dist/bundle.js"></script>

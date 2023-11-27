@@ -119,7 +119,7 @@
                 <p class="form-close">x</p>
                 <div class="filter-option-input">
                     <select id="select-fltr-optn" class="name-filter">
-                        <option value="" disabled selected> Name</option>
+                        <option value=""  selected> Name</option>
                     </select>
                     <div id="select-fltr-optn" class="date-filter">
                 
@@ -128,10 +128,10 @@
                 
                     </div>
                     <select id="select-fltr-optn" class="location-filter">
-                        <option value="" disabled selected>Location</option>
+                        <option value=""  selected>Location</option>
                     </select>
                     <select id="select-fltr-optn" class="category-filter">
-                        <option value="" disabled selected>Category</option>
+                        <option value=""  selected>Category</option>
                     </select>
                     <!-- <select class="ticket-price-filter">
                         <option value="" disabled selected>Ticket Price</option>
@@ -146,7 +146,7 @@
                     </div>
     
                     <select id="select-fltr-optn" class="status-filter">
-                        <option value="" disabled selected>Status</option>
+                        <option value=""  selected>Status</option>
                     </select>
                     <div id="select-fltr-optn" class="rate-filter">
                         <label for="ratingFilter">Rating</label>
@@ -157,9 +157,15 @@
     
                         <!-- Define the tickmarks using datalist -->
                     </div>
+                    <select class="sort" id="select-fltr-optn">
+                        <option value="" selected>Sort By</option>
+                        <option value="sort-by-name">Sort by Name</option>
+                        <option value="sort-by-location">Sort by Location</option>
+                        <option value="sort-by-date">Sort by Date</option>
+                    </select>
                     <!-- <select class="filters"></select> -->
                 </div>
-                <button id="form-fltr-btn" type="submit">Filter</button>
+                <button class="form-fltr-btn" id="form-fltr-btn" type="submit">Filter</button>
             </form>
         </div>
         <div class="cards-section-wrapper max-width">

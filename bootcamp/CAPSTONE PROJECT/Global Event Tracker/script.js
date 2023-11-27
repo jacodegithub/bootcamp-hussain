@@ -193,6 +193,8 @@ function applyFilters(events_data) {
     const statusFilter = document.querySelector('.status-filter')
     const rateFilter = document.querySelector('#ratingFilter')
 
+    const sorting = document.querySelector('.sort')
+
     // CAPTURING FILTER FORM
     const filterForm = document.querySelector('.filter-form')
     const card_container = document.querySelector('.cards-container');
@@ -230,6 +232,11 @@ function applyFilters(events_data) {
     
         })
 
+        
+        const sortingOption = sorting.value; 
+
+        sortDataByRequirement(filteredData, sortingOption);
+
         // renderingEventCards(filteredData) 
         // console.log('filtered data', filteredData)
         setTimeout(() => {
@@ -240,6 +247,19 @@ function applyFilters(events_data) {
 
     })    
 }
+
+// FUNCTION FOR SORTING THE FILTERED DATA
+function sortDataByRequirement(data, sortingOption) {
+    if (sortingOption === 'sort-by-name') {
+        data.sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortingOption === 'sort-by-location') {
+        data.sort((a, b) => a.location.localeCompare(b.location));
+    }else if (sortingOption === 'sort-by-date') {
+        data.sort((a, b) => new Date(a.date) - new Date(b.date));
+    }
+}
+
+
 
 
 // RENDERING EVENT CARDS 
@@ -264,6 +284,9 @@ function renderingEventCards(events) {
 
         let card_img_container = document.createElement('div');
         card_img_container.classList.add('card-img-container');
+
+        let card_img_front_slider = document.createElement('div')
+        card_img_front_slider.classList.add('card-img-slider')
 
         let card_img = document.createElement('img');
         // const url = fetchImageByCategory(eve_card.category)
@@ -295,6 +318,9 @@ function renderingEventCards(events) {
         // adding image
         card_img.src = 'https://picsum.photos/200/300';
         card_img_container.appendChild(card_img);
+
+        // attaching image slider
+        card_img_container.appendChild(card_img_front_slider);
 
         card_title.textContent = eve_card.name;
         card_date.textContent = eve_card.date;

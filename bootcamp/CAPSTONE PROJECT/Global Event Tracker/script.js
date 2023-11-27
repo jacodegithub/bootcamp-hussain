@@ -1,6 +1,6 @@
 import { events_data } from "./eventData.js";
 
-const event_data = events_data.slice(0, 50);
+const event_data = events_data.slice(0, 500);
 console.log(event_data);
 
 // DYNAMICALLY ADDING NAVBAR

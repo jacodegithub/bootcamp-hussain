@@ -1,0 +1,5 @@
+![Home Page](<Screenshot (557).png>) 
+![Cards section](<Screenshot (558).png>) 
+![Footer](<Screenshot (559).png>) 
+![Pie Chart](<Screenshot (560).png>) 
+![Maps Page](<Screenshot (561).png>)

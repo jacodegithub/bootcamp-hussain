@@ -1,6 +1,6 @@
 import { events_data } from "./eventData.js";
 
-const event_data = events_data.slice(0, 5);
+const event_data = events_data.slice(0, 500);
 
 // RENDERING MAPS
 const navbar = document.querySelector('#navbar')
@@ -44,7 +44,15 @@ searchBox.addEventListener('submit', (event) => {
         searchVal.focus()
         return;
     }
-
+    console.log(event_data);
+    const each_city_data = event_data.find(data => data.location.toLowerCase().includes(searchVal.value));
+    const no_of_events = event_data.reduce((prev, curr) => {
+        if(curr.location.toLowerCase().includes(searchVal.value)) {
+            prev += 1;
+        }
+        return prev;
+    }, 0)
+    console.log(each_city_data);
     const APIKEY = `3b7a61b69fcba80c3efdeb434adb36d6`;
     const URL = `https://api.openweathermap.org/data/2.5/weather?q=${searchVal.value}&appid=${APIKEY}`
 
@@ -54,7 +62,13 @@ searchBox.addEventListener('submit', (event) => {
             let cur = json.current;
             let loc = json.coord;
             let latLon = [loc.lat, loc.lon];
-
+            /*
+             Date: ${obj.date}, 
+            Organizer: ${obj.name}, 
+            Status: ${obj.status}, 
+            Rating: ${obj.rating}, 
+            Time: ${obj.timing} 
+            */
             L.circle(latLon, {
                 color: 'red',
                 fillColor: '#f03',
@@ -62,7 +76,14 @@ searchBox.addEventListener('submit', (event) => {
                 radius: 10
             }).addTo(map);
 
-            L.marker(latLon).addTo(map).bindPopup(`Location: ${json.name}, ${json.sys.country}<br>temperature: ${json.main.temp}&#8451;<br>
+            L.marker(latLon).addTo(map).bindPopup(`Location: ${json.name}, ${each_city_data}
+            <br> Date: ${each_city_data.date}, 
+            <br> Organizer: ${each_city_data.organizer},
+            <br> Status: ${each_city_data.status},
+            <br> Rating: ${each_city_data.rating},
+            <br> Time: ${each_city_data.time},
+            <br> No. of Events in ${each_city_data.location}: ${no_of_events},
+            <br>temperature: ${json.main.temp}°C&#8451;<br>
             Humidity: ${json.main.humidity}%<br>
             Weather: ${json.weather[0].description}`).openPopup();
 

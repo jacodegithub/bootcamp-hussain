@@ -56,6 +56,7 @@ if (selectedEvent) {
     eventLocation.textContent = `Location: ${selectedEvent.location}`;
 
     const eventDescription = document.createElement('p');
+    eventDescription.classList.add('event-description')
     eventDescription.textContent = selectedEvent.description;
     
     // Other card details
@@ -64,6 +65,11 @@ if (selectedEvent) {
 
     const eventStatus = document.createElement('p');
     eventStatus.textContent = `Status: ${selectedEvent.status}`;
+    // console.log(selectedEvent.status);
+    const bootTicketBtn = document.querySelector('#book-ticket-btn')
+    if(selectedEvent.status.toLowerCase().includes('not-active')) {
+        bootTicketBtn.style.display = 'none';
+    }
 
     const eventPrice = document.createElement('p');
     eventPrice.textContent = `Ticket Price: ${selectedEvent.ticket_price}`;
@@ -82,6 +88,11 @@ if (selectedEvent) {
 
     const rightDetail = document.createElement('div')
     rightDetail.classList.add('right-details')
+
+    // Adding book ticket button 
+    // const bookTicketBtn = document.createElement('button')
+    // bookTicketBtn.classList.add('book-ticket-btn')
+    // bookTicketBtn.textContent = 'Book Ticket'
 
     // Adding elements to left-details div
     leftDetail.appendChild(eventName)

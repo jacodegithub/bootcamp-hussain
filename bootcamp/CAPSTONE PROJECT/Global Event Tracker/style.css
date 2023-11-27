@@ -488,6 +488,11 @@ nav .nav-links a:last-child:hover {
     margin-bottom: 2%;
 }
 
+#container-city {
+    color: #3498db;
+    text-decoration: underline;
+    cursor: pointer;
+}
 .eve-card {
     background-color: #eee;
     height: 18rem;
@@ -536,6 +541,9 @@ nav .nav-links a:last-child:hover {
     color: #555;
 
 }
+.eve-card-loc {
+    color: #555;
+}
 /* CARD IMAGE ANIMVATION */
 .card-img-slider {
     position: absolute;
@@ -545,10 +553,28 @@ nav .nav-links a:last-child:hover {
     top: 100%;
     left: 0;
     transition: .6s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
+.card-img-slider .book-tkt-btn {
+    padding: 3% 5%;
+    border: 2px solid white;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
 .eve-card:hover .card-img-slider {
     top: 0%;
 }
+/* location-container of card */
+.loc-container {
+    display: flex;
+}
+
 
 /* LOAD MORE BUTTON  */
 #view-more-btn {
@@ -568,6 +594,7 @@ nav .nav-links a:last-child:hover {
 }
 
 .cards-container-wrapper {
+    /* height: 100%; */
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -78,19 +78,19 @@ flatpickr("#datePicker", {
   function getEventDataForDateRange(startDate, endDate) {
     return eventData.filter(item => {
       const eventDate = new Date(item.date.replace(/(\d{2})\/(\d{2})\/(\d{4})/, "$1-$2-$3"));
-      console.log(eventDate);
+    //   console.log(eventDate);
       return eventDate >= new Date(startDate) && eventDate <= new Date(endDate);
     });
   }
   
   // Function to calculate category proportion for the pie chart
   function calculateCategoryProportion(data) {
-      console.log('data',data);
+    //   console.log('data',data);
     const categoryCounts = {};
     data.forEach(item => {
       categoryCounts[item.category] = (categoryCounts[item.category] || 0) + 1;
     });
-    console.log(categoryCounts)
+    // console.log(categoryCounts)
     return Object.values(categoryCounts);
   }
   

@@ -195,6 +195,8 @@ function applyFilters(events_data) {
 
     const sorting = document.querySelector('.sort')
 
+    const cityNameRender = document.querySelector('#container-city')
+    // console.log('city', cityNameRender.textContent);
     // CAPTURING FILTER FORM
     const filterForm = document.querySelector('.filter-form')
     const card_container = document.querySelector('.cards-container');
@@ -220,6 +222,11 @@ function applyFilters(events_data) {
     
             // console.log(eventStatus, statusFilter.value.toLowerCase())
             // console.log('date', eventDate.split('/')[2]);
+
+            // console.log('event',eventLocation, cityNameRender.textContent);
+            if(eventLocation) {
+                cityNameRender.textContent = eventLocation;
+            }
 
             return(
                 (nameFilter.value == '' || eventOrganizer.includes(nameFilter.value.toLowerCase())) &&
@@ -288,6 +295,12 @@ function renderingEventCards(events) {
         let card_img_front_slider = document.createElement('div')
         card_img_front_slider.classList.add('card-img-slider')
 
+        // creating book ticket on card img slider 
+        let slider_img_btn = document.createElement('button')
+        slider_img_btn.classList.add('book-tkt-btn');
+        slider_img_btn.textContent = 'Book Ticket';
+        card_img_front_slider.appendChild(slider_img_btn)
+
         let card_img = document.createElement('img');
         // const url = fetchImageByCategory(eve_card.category)
         // console.log('image', url)
@@ -307,8 +320,17 @@ function renderingEventCards(events) {
         let card_date = document.createElement('h4');
         card_date.classList.add('eve-card-date');
 
+        let loc_container = document.createElement('div')
+        loc_container.classList.add('loc-container')
+
+        // Create the map marker icon using Unicode
+        let marker = document.createElement('div');
+        marker.innerHTML = '&#128205;'; // Unicode for a generic map marker symbol
+        marker.classList.add('map-marker');
+        loc_container.appendChild(marker);
         let card_location = document.createElement('h4');
         card_location.classList.add('eve-card-loc');
+        loc_container.appendChild(card_location)
 
         let card_status = document.createElement('h5');
         card_status.classList.add('eve-card-status');
@@ -316,7 +338,16 @@ function renderingEventCards(events) {
         // console.log(eve_card.name);
 
         // adding image
-        card_img.src = 'https://picsum.photos/200/300';
+        // const url = fetchImageByCategory(eve_card.category)
+        // console.log('image', url)
+        // if (url) {
+        //     card_img.src = url
+        //     card_img.alt = topic.category.toLowerCase();
+        //     console.log(card_img.src);
+        //     card_img_container.appendChild(card_img);
+        // }
+        card_img.src = 'https://source.unsplash.com/random?'+i;
+        // 'https://picsum.photos/200/300';
         card_img_container.appendChild(card_img);
 
         // attaching image slider
@@ -328,7 +359,7 @@ function renderingEventCards(events) {
         card_status.textContent = eve_card.status;
 
         card_details.appendChild(card_title);
-        card_details.appendChild(card_location);
+        card_details.appendChild(loc_container);
         card_details.appendChild(card_date);
         card_details.appendChild(card_status);
 

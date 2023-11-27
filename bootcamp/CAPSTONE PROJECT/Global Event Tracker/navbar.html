@@ -225,7 +225,7 @@
             <a href="chart.html">Eve Distributions</a>
             <a href="map.html">Map</a>
             <a href="#contact">Contact Us</a>
-            <a href="signup.html">Sign Up</a>
+            <a id="sign-up-link" href="signup.html">Sign Up</a>
         </div>
         <label class="label-check" for="check">
             <div class="hamberger">
@@ -265,16 +265,17 @@
 
 
             // Check authentication status and update navigation accordingly
-            // firebase.auth().onAuthStateChanged(function(user) {
-            //         const signUpLink = document.querySelector('.nav-links a[href="signup.html"]');
-            //         if (user) {
-            //             // User is signed in
-            //             signUpLink.style.display = 'none'; // Hide the sign-up link
-            //         } else {
-            //             // User is signed out
-            //             signUpLink.style.display = 'block'; // Show the sign-up link
-            //         }
-            //     });
+            firebase.auth().onAuthStateChanged(function(user) {
+                const signUpLink = document.querySelector('#sign-up-link');
+                // console.log(signUpLink);
+                if (user) {
+                    // User is signed in
+                    signUpLink.style.display = 'none'; // Hide the sign-up link
+                } else {
+                    // User is signed out
+                    signUpLink.style.display = 'block'; // Show the sign-up link
+                }
+            });
         });
     </script>
 </body>

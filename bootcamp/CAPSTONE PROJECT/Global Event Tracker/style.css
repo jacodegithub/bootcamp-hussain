@@ -428,7 +428,7 @@ nav .nav-links a:last-child:hover {
 }
 #select-fltr-optn #priceFilter {
     position: absolute;
-    bottom: -300%;    
+    bottom: -150%;    
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -444,14 +444,14 @@ nav .nav-links a:last-child:hover {
         opacity: 0;
     }
     to {
-        bottom: -300%;
+        bottom: -150%;
         opacity: 1;
     }
 }
 
 #select-fltr-optn #ratingFilter {
     position: absolute;
-    bottom: -300%;
+    bottom: -150%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
@@ -469,7 +469,7 @@ nav .nav-links a:last-child:hover {
         opacity: 0;
     }
     to {
-        bottom: -300%;
+        bottom: -150%;
         opacity: 1;
     }
 }

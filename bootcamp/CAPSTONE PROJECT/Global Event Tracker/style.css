@@ -294,7 +294,7 @@ nav .nav-links a:last-child:hover {
 /* CARDS SECTION  */
 .cards-section {
     height: 150vh;
-    background-color: #efe;
+    background-color: rgb(251, 255, 251);
     position: relative;
 }
 

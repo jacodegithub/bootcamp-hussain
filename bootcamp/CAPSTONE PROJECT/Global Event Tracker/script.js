@@ -224,8 +224,9 @@ function applyFilters(events_data) {
             // console.log('date', eventDate.split('/')[2]);
 
             // console.log('event',eventLocation, cityNameRender.textContent);
-            if(eventLocation) {
-                cityNameRender.textContent = eventLocation;
+            // console.log(eventLocation);
+            if(eventLocation == locationFilter.value.toLowerCase()) {
+                cityNameRender.textContent = eventLocation[0].toUpperCase() + eventLocation.slice(1);
             }
 
             return(

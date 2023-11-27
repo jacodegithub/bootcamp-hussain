@@ -441,7 +441,6 @@ async function fetchImageByCategory(category) {
 }
 
 
-
 /*
 
 category

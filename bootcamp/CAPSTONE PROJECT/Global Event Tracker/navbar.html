@@ -131,6 +131,16 @@
             display: none;
         }
 
+        nav .nav-links a:hover {
+            color: var(--btn-bg-clr);
+            /* Add any additional styles to highlight the active link */
+        }
+
+        nav .nav-links a.active {
+            color: var(--btn-bg-clr);
+            font-size: 1rem;
+            /* Add any additional styles to highlight the active link */
+        }
 
         /* FOR RESPONSIVENESS */
 
@@ -231,19 +241,41 @@
         <div id="loader" class="loader"></div>
     </nav>
     <script>
-        const links = document.querySelectorAll('a')
-        const loader = document.querySelector('#loader')
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                loader.style.display = 'block';
+        // const links = document.querySelectorAll('a')
+        // const loader = document.querySelector('#loader')
+        // links.forEach(link => {
+        //     link.addEventListener('click', () => {
+        //         loader.style.display = 'block';
 
-                setTimeout(() => {
-                    loader.style.display = 'none';
+        //         setTimeout(() => {
+        //             loader.style.display = 'none';
 
-                    window.location.href = link.href;
-                }, 3000)
-            })
-        })
+        //             window.location.href = link.href;
+        //         }, 3000)
+        //     })
+        // })
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('.nav-links a');
+            const loader = document.querySelector('#loader');
+
+            links.forEach(link => {
+                link.addEventListener('click', (event) => {
+                    event.preventDefault(); // Prevent the default behavior of the link
+
+                    loader.style.display = 'block';
+                    setTimeout(() => {
+                        loader.style.display = 'none';
+
+                        window.location.href = link.href;
+                    }, 3000);
+                });
+                // Check if the current URL matches the link's href
+                if (window.location.href.toLowerCase().includes(link.href.toLowerCase())) {
+                    link.classList.add('active');
+                }
+            });
+        });
     </script>
 </body>
 </html>

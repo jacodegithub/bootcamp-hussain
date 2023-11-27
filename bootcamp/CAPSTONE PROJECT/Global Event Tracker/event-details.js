@@ -31,7 +31,7 @@ const imageUrl = urlParams.get('imageUrl');
 
 // You can fetch the event details using the event ID from your data source (e.g., eventData)
 const selectedEvent = eventData.find(event => event.id == eventId);
-console.log(selectedEvent);
+// console.log(selectedEvent);
 // Render the event details
 if (selectedEvent) {
     const eventDetailsContainer = document.getElementById('event-details');

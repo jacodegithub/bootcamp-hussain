@@ -262,6 +262,19 @@
                     link.classList.add('active');
                 }
             });
+
+
+            // Check authentication status and update navigation accordingly
+            // firebase.auth().onAuthStateChanged(function(user) {
+            //         const signUpLink = document.querySelector('.nav-links a[href="signup.html"]');
+            //         if (user) {
+            //             // User is signed in
+            //             signUpLink.style.display = 'none'; // Hide the sign-up link
+            //         } else {
+            //             // User is signed out
+            //             signUpLink.style.display = 'block'; // Show the sign-up link
+            //         }
+            //     });
         });
     </script>
 </body>

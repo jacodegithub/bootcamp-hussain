@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Footer</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <style>
         body {
             margin: 0;
@@ -40,6 +41,7 @@
             flex-direction: column;
             line-height: 1.15rem;
             margin-top: 3%;
+            
         }
         .footer-links a {
             text-decoration: none;
@@ -48,6 +50,13 @@
         }
         .footer-links a:hover {
             text-decoration:underline;
+        }
+        .footer-links a i {
+            border-radius: 50%;
+            color: #1e0a3d;
+            background-color: #e2deeb;
+            font-size: x-large;
+            margin-right: 10px;
         }
         .footer-bottom {
             width: 100%;
@@ -133,11 +142,13 @@
                 <h4>Connect With Us</h4>
                 <div class="footer-links">
                     <a href="#">Contact Support</a>
-                    <a href="#">Twitter</a>
-                    <a href="#">Facebook</a>
-                    <a href="#">Linkedin</a>
-                    <a href="#">Instagram</a>
-                    <a href="#">TikTok</a>
+                    <div class="footer-social">
+                        <a href="#"><i class='bx bxl-twitter' ></i></a>
+                        <a href="#"><i class='bx bxl-facebook' ></i></i></a>
+                        <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                        <a href="#"><i class='bx bxl-instagram-alt' ></i></a>
+                        <a href="#"><i class='bx bxl-tiktok' ></i></a>
+                    </div>
                 </div>
             </div>
             </div>

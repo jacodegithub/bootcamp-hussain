@@ -53,7 +53,7 @@ const mockFetchEvents = async () => {
         // }
 
         // const events_data = await response.json();
-        console.log(event_data);
+        // console.log(event_data);
 
         applyFilters(event_data);
         populateFilterOption(event_data);
@@ -73,9 +73,19 @@ const mockFetchEvents = async () => {
 
 // TYPES
 const heroIcon = document.querySelectorAll('.icons');
+const loader = document.querySelector('#loader') // Capturing loader
 heroIcon.forEach(icon => {
     icon.addEventListener('click', () => {
-        console.log(icon.childNodes[3].textContent);
+        // console.log(icon.childNodes[3].textContent);
+        loader.style.display = 'block';
+
+        let selectedCat = icon.childNodes[3].textContent.toLowerCase();
+        let filteredData = event_data.filter(eveData => eveData.category.toLowerCase().includes(selectedCat))
+        setTimeout(() => {
+            renderingEventCards(filteredData);
+            
+            loader.style.display = 'none';
+        }, 3000)
     })
 })
 
@@ -191,7 +201,7 @@ function applyFilters(events_data) {
         event.preventDefault();
         // card_container.innerHTML = ''
         // console.log(nameFilter.value, dateFilter.value, locationFilter.value, catFilter.value, ticketPriceFilter.value, statusFilter.value, rateFilter.value);
-        
+        loader.style.display = 'block';
 
         const filteredData = events_data.filter(data => {
             const eventCat = data.category.toLowerCase();
@@ -221,8 +231,10 @@ function applyFilters(events_data) {
         })
 
         // renderingEventCards(filteredData) 
-        console.log('filtered data', filteredData)
+        // console.log('filtered data', filteredData)
         setTimeout(() => {
+            loader.style.display = 'none';
+
             renderingEventCards(filteredData)
         }, 3000)
 
@@ -241,12 +253,12 @@ function renderingEventCards(events) {
     if (lastIndexRendered === 0) {
     }
     card_container.innerHTML = '';
-    console.log('render ', events.length);
+    // console.log('render ', events.length);
 
     for (let i = 0; i < visibleDialogues && i < events.length; ++i) {
-        console.log(lastIndexRendered, visibleDialogues);
+        // console.log(lastIndexRendered, visibleDialogues);
         let eve_card = events[i];
-        console.log(eve_card);
+        // console.log(eve_card);
         let each_card = document.createElement('div');
         each_card.classList.add('eve-card');
 
@@ -301,9 +313,16 @@ function renderingEventCards(events) {
         each_card.addEventListener('click', function () {
             // Redirect to the event details page, passing the event ID as a query parameter
             // console.log(card_img.src);
+
+            loader.style.display = 'block';
+            console.log(loader);
             const imageUrl = card_img.src
-            console.log('imageUrl', imageUrl);
-            window.location.href = 'event-details.html?id=' + eve_card.id + '&imageUrl=' + imageUrl;
+            // console.log('imageUrl', imageUrl);
+            setTimeout(() => {
+                loader.style.display = 'none';
+                
+                window.location.href = 'event-details.html?id=' + eve_card.id + '&imageUrl=' + imageUrl;
+            }, 1000)
         });
 
         card_container.appendChild(each_card);
@@ -324,10 +343,10 @@ function renderingEventCards(events) {
 const cardsSection = document.querySelector('.cards-section')
 function updateCardSectionHeight() {
     const cardHeight = document.querySelector('.eve-card').offsetHeight; // Adjust 20 as needed for margins/padding
-    console.log(document.querySelector('.eve-card'));
-    console.log('card height', cardHeight);
+    // console.log(document.querySelector('.eve-card'));
+    // console.log('card height', cardHeight);
     const newHeight =  (cardHeight / 3 * visibleDialogues);
-    console.log('new height',newHeight);
+    // console.log('new height',newHeight);
     // Set the new height for the card section
     cardsSection.style.height = `${newHeight}px`;
 }

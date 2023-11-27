@@ -29,17 +29,70 @@
         background-color:rgb(255, 250, 242);
         font-family: 'Segoe UI', sans-serif;
     }
+    .max-width {
+        max-width: 1200px;
+        margin: auto;
+    }
     .chart-container {
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: flex-start;
+        display: grid;
+        grid-template-rows: 1fr;
         margin-top: 5%;
         margin-bottom: 5%;
     }
+    .pie-chart-section {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    }
+    .pie-chart {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        flex-direction: column;
+    }
+    .pie-chart input {
+        height: 2rem;
+        border-radius: 1rem;
+        padding-left: 1rem;
+    }
     #eventTypePieChart {
-        width: 60%;
-        height: 60%;
+        width: 100%;
+        height: 100%;
+    }
+    
+    #chartExplanationContainer {
+        background-color: rgba(255, 241, 219, 0.91);
+        max-height: 400px; 
+        overflow: hidden; 
+        transition: max-height 0.5s ease; 
+        padding: 1rem;
+        border: 1px solid rgb(255, 224, 173);
+        border-radius: 1rem;
+        color: #233;
+    }
+
+    #viewMoreBtn {
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+        margin-top: 1rem;
+        font-size: small;
+        margin-left: 1rem;
+    }
+
+
+    @media screen and (max-width: 1100px) {
+        .max-width {
+            max-width: 80%;
+        }
+        .pie-chart-section {
+            display: grid;
+            grid-template-columns: 1fr
+        }
+        .pie-chart {
+            grid-row: 1;
+            margin-bottom: 2%;
+            width: 100%;
+        }
     }
   </style>
 </head>
@@ -47,16 +100,29 @@
 
     <nav id="navbar"></nav>
 
-    <div class="chart-container">
-        <!-- Date picker input -->
-        <input type="text" id="datePicker" placeholder="Select time period">
-    
-        <!-- Canvas to render the pie chart -->
-        <canvas id="eventTypePieChart"></canvas>
+    <div class="chart-container max-width">
+        <div class="pie-chart-section">
+
+            <div class="pie-chart-description">
+                <div id="chartExplanationContainer">
+                    <p id="chartExplanation">The pie chart illustrates the distribution of event types during the selected time period. Each segment represents a specific event category, and the size of each segment corresponds to the proportion of events within that category. The legend below the chart provides a visual key to identify each event category. As the time period is adjusted, the chart dynamically updates to reflect changes in the distribution of event types, offering insights into the composition of events over time. Explore how different categories contribute to the overall event landscape and observe trends in event type preferences.<br><br><span id="categoryData"></span></p>
+                </div>
+                <div id="viewMoreBtn">View More</div>
+
+            </div>
+            <div class="pie-chart">
+                <!-- Date picker input -->
+                <input type="text" id="datePicker" placeholder="Select time period">
+            
+                <!-- Canvas to render the pie chart -->
+                <canvas id="eventTypePieChart"></canvas>
+            </div>
+
+        </div>
 
     </div>
 
-    <footer id="footer"></footer>
+    <div id="footer"></div>
     <script type="module" src="chart.js"></script>
 
 </body>

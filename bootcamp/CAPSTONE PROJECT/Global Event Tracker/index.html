@@ -149,7 +149,7 @@
                         <option value="" disabled selected>Status</option>
                     </select>
                     <div id="select-fltr-optn" class="rate-filter">
-                        <label id="rating" for="ratingFilter">Rating</label>
+                        <label for="ratingFilter">Rating</label>
                         <input class="hidden" type="range" id="ratingFilter" name="priceFilter" min="1" max="5" step="1" value="0">
     
                         <!-- Display the selected value dynamically -->
@@ -173,6 +173,10 @@
             <!-- cards  -->
             <h2 class="card-container-title">Popular in <span id="container-city">City</span></h2>
             <div class="cards-container-wrapper">
+
+                <!-- loader  -->
+                <div id="loader" class="loader"></div>
+
                 <div class="cards-container">
     
                 </div>

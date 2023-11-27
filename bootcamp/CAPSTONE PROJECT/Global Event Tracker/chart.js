@@ -28,7 +28,7 @@ flatpickr("#datePicker", {
   });
   
   // Initial data for all time periods
-  let currentData = getEventDataForDateRange('01-01-2021', '31-12-2023');
+  let currentData = getEventDataForDateRange('2021-01-01', '2023-12-31');
   
   // Set up the pie chart
   const ctx = document.getElementById('eventTypePieChart').getContext('2d');
@@ -102,6 +102,35 @@ flatpickr("#datePicker", {
     }
     return colors;
   }
+
+
+  // For dynamically generating data in paragraph
+  function updateExplanation() {
+    const categoryDataElement = document.getElementById('categoryData');
+    const dataset = eventTypePieChart.data.datasets[0].data;
+    const labels = eventTypePieChart.data.labels;
+  
+    let explanationText = `During the selected time period, the distribution of event types is as follows:<br><br>`;
+    for (let i = 0; i < labels.length; i++) {
+      explanationText += `${labels[i]}: ${dataset[i]} events<br>`;
+    }
+  
+    explanationText += `<br>Observe how the pie chart dynamically updates to reflect changes in event distribution as the time period is adjusted.`;
+  
+    categoryDataElement.innerHTML = explanationText;
+  }
+  
+  // Call the function to update the explanation on initial load
+  updateExplanation();
+
+
+   // Add a click event listener to the "View More" button
+   document.getElementById('viewMoreBtn').addEventListener('click', function () {
+    // Toggle the max-height property to show/hide the container
+    const container = document.getElementById('chartExplanationContainer');
+    container.style.maxHeight = container.style.maxHeight ? null : '1000px'; // Set the max-height based on your needs
+  });
+
 
 
 // document.addEventListener('DOMContentLoaded', function () {
